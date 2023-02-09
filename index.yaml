@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  country-risk-frontend:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-02-09T23:33:00.659313172Z"
+    description: A Helm chart for deploying the Country Risk service
+    digest: b3f4c3a3813cf16958d488d475d3eae9d525ccb65494efbae478865531b15d4d
+    name: country-risk-frontend
+    type: application
+    urls:
+    - https://github.com/catenax-ng/tx-vas-country-risk-frontend/releases/download/country-risk-frontend-2.0.7/country-risk-frontend-2.0.7.tgz
+    version: 2.0.7
+generated: "2023-02-09T23:33:00.659317872Z"
