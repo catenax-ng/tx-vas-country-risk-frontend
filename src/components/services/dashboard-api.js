@@ -21,7 +21,7 @@
 import axios from "axios";
 
 // Actions
-export function getAll(ratingsArray, years, token, customerUser, gates) {
+export function getAll(ratingsArray, years, token, customerUser, gates,page,size) {
   return axios
     .get(process.env.REACT_APP_DASHBOARD_URL, {
       params: {
@@ -31,6 +31,8 @@ export function getAll(ratingsArray, years, token, customerUser, gates) {
         email: customerUser.email,
         companyName: customerUser.companyName,
         gate: gates,
+        page:page || 0,
+        size:size || 15
       },
       headers: { Authorization: `Bearer ${token}` },
     })

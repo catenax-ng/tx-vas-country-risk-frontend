@@ -1,24 +1,30 @@
 /********************************************************************************
-* Copyright (c) 2022,2023 BMW Group AG 
-* Copyright (c) 2022,2023 Contributors to the Eclipse Foundation
-*
-* See the NOTICE file(s) distributed with this work for additional
-* information regarding copyright ownership.
-*
-* This program and the accompanying materials are made available under the
-* terms of the Apache License, Version 2.0 which is available at
-* https://www.apache.org/licenses/LICENSE-2.0.
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
-* WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
-* License for the specific language governing permissions and limitations
-* under the License.
-*
-* SPDX-License-Identifier: Apache-2.0
-********************************************************************************/
+ * Copyright (c) 2022,2023 BMW Group AG
+ * Copyright (c) 2022,2023 Contributors to the Eclipse Foundation
+ *
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Apache License, Version 2.0 which is available at
+ * https://www.apache.org/licenses/LICENSE-2.0.
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ ********************************************************************************/
 /* eslint-disable no-console */
-import React, { useState, useEffect, useContext, useCallback } from "react";
+import React, {
+  useState,
+  useEffect,
+  useContext,
+  useCallback,
+  useRef,
+} from "react";
 import { getAll } from "../../services/dashboard-api";
 
 import { Dialog, Table } from "cx-portal-shared-components";
@@ -35,6 +41,10 @@ import { DetailGrid } from "../DetailGrid/DetailGrid";
 import DetailDialog from "../DetailDialog/DetailDialog";
 
 const DashboardTable = (ratings, years) => {
+  const [currentPage, setCurrentPage] = React.useState(0);
+  const totalElements = useRef(0);
+  const currentSize = useRef(15);
+  const [loading, setLoading] = React.useState(true);
   //Data Fetch
   const [data, setData] = useState([]);
   const [globalData, setGlobalData] = useState([]);
@@ -56,22 +66,26 @@ const DashboardTable = (ratings, years) => {
   };
 
   const fetchData = (expr) => {
+    setLoading(true);
     const lexpr = expr.toLowerCase();
     getAll(
       ratings.getRatings,
       ratings.years,
       UserService.getToken(),
       companyUser,
-      gates
-    ).then((response) =>
+      gates,
+      currentPage,
+      currentSize
+    ).then((response) => {
+      setLoading(false);
       setData(
         response.filter((row) => {
           return Object.keys(row).reduce((acc, value) => {
             return acc ? acc : String(row[value]).toLowerCase().includes(lexpr);
           }, false);
         })
-      )
-    );
+      );
+    });
   };
 
   //Export to CSV
@@ -111,18 +125,42 @@ const DashboardTable = (ratings, years) => {
   }, [countryS.country, globalData]);
 
   useEffect(() => {
+    setLoading(true);
     if (ratings.weight !== 0) {
       getAll(
         ratings.getRatings,
         ratings.years,
         UserService.getToken(),
         companyUser,
-        gates
+        gates,
+        currentPage,
+        currentSize
       ).then((response) => {
-        setGlobalData(response);
+        setLoading(false);
+        totalElements.current = response.totalElements;
+        setGlobalData(response.content);
       });
     }
   }, [ratings.getRatings, ratings.years, ratings.weight, gates]);
+
+  useEffect(() => {
+    setLoading(true);
+    if (ratings.weight !== 0) {
+      getAll(
+        ratings.getRatings,
+        ratings.years,
+        UserService.getToken(),
+        companyUser,
+        gates,
+        currentPage,
+        currentSize
+      ).then((response) => {
+        totalElements.current = response.totalElements;
+        setGlobalData(response.content);
+        setLoading(false);
+      });
+    }
+  }, [currentPage]);
 
   return (
     <>
@@ -130,9 +168,13 @@ const DashboardTable = (ratings, years) => {
         <Table
           className="table"
           columns={columns(ranges, openDetailGridFunction)}
-          rowsCount={data.length}
+          rowCount={totalElements.current}
           rows={data}
           pageSize={15}
+          paginationMode="server"
+          onPageChange={(newPage) => setCurrentPage(newPage)}
+          loading={loading}
+          rowsPerPageOptions={[15]}
           rowHeight={50}
           headerHeight={40}
           autoHeight={true}

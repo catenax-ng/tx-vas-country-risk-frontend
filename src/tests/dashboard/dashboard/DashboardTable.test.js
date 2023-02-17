@@ -1,22 +1,22 @@
 /********************************************************************************
-* Copyright (c) 2022,2023 BMW Group AG 
-* Copyright (c) 2022,2023 Contributors to the Eclipse Foundation
-*
-* See the NOTICE file(s) distributed with this work for additional
-* information regarding copyright ownership.
-*
-* This program and the accompanying materials are made available under the
-* terms of the Apache License, Version 2.0 which is available at
-* https://www.apache.org/licenses/LICENSE-2.0.
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
-* WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
-* License for the specific language governing permissions and limitations
-* under the License.
-*
-* SPDX-License-Identifier: Apache-2.0
-********************************************************************************/
+ * Copyright (c) 2022,2023 BMW Group AG
+ * Copyright (c) 2022,2023 Contributors to the Eclipse Foundation
+ *
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Apache License, Version 2.0 which is available at
+ * https://www.apache.org/licenses/LICENSE-2.0.
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ ********************************************************************************/
 import { render, act, fireEvent, screen } from "@testing-library/react";
 import { test } from "@jest/globals";
 import "@testing-library/jest-dom/extend-expect";
@@ -29,56 +29,75 @@ import { CompanyUserProvider } from "../../../contexts/companyuser";
 import React from "react";
 import DashboardTable from "../../../components/dashboard/DashBoardTable/DashboardTable";
 
-const tableinfoData = [
-  {
-    id: 0,
-    bpn: "BPN-NUMBER-TEST",
-    legalName: "Divape Company",
-    address: "15874 Sutteridge Trail",
-    city: "Covilhã",
-    country: "Portugal",
-    score: 90,
-    rating: "Fake Rating",
-    longitude: "107.6185727",
-    latitude: "-6.6889038",
+const tableinfoData = {
+  content: [
+    {
+      id: 0,
+      bpn: "BPN-NUMBER-TEST",
+      legalName: "Divape Company",
+      address: "15874 Sutteridge Trail",
+      city: "Covilhã",
+      country: "Portugal",
+      score: 90,
+      rating: "Fake Rating",
+      longitude: "107.6185727",
+      latitude: "-6.6889038",
+    },
+    {
+      id: 1,
+      bpn: "BPN-NUMBER",
+      legalName: "Divape Company",
+      address: "15874 Sutteridge Trail",
+      city: "Covilhã",
+      country: "Portugal",
+      score: 10,
+      rating: "Fake Rating",
+      longitude: "107.6185727",
+      latitude: "-6.6889038",
+    },
+    {
+      id: 2,
+      bpn: "BPN-NUMBER",
+      legalName: "Divape Company",
+      address: "15874 Sutteridge Trail",
+      city: "Covilhã",
+      country: "Portugal",
+      score: 39,
+      rating: "Fake Rating",
+      longitude: "107.6185727",
+      latitude: "-6.6889038",
+    },
+    {
+      id: 3,
+      bpn: "BPN-NUMBER",
+      legalName: "Divape Company",
+      address: "15874 Sutteridge Trail",
+      city: "Covilhã",
+      country: "Portugal",
+      score: 41,
+      rating: "",
+      longitude: "107.6185727",
+      latitude: "-6.6889038",
+    },
+  ],
+  pageable: {
+    sort: { empty: true, unsorted: true, sorted: false },
+    offset: 45,
+    pageNumber: 3,
+    pageSize: 15,
+    unpaged: false,
+    paged: true,
   },
-  {
-    id: 1,
-    bpn: "BPN-NUMBER",
-    legalName: "Divape Company",
-    address: "15874 Sutteridge Trail",
-    city: "Covilhã",
-    country: "Portugal",
-    score: 10,
-    rating: "Fake Rating",
-    longitude: "107.6185727",
-    latitude: "-6.6889038",
-  },
-  {
-    id: 2,
-    bpn: "BPN-NUMBER",
-    legalName: "Divape Company",
-    address: "15874 Sutteridge Trail",
-    city: "Covilhã",
-    country: "Portugal",
-    score: 39,
-    rating: "Fake Rating",
-    longitude: "107.6185727",
-    latitude: "-6.6889038",
-  },
-  {
-    id: 3,
-    bpn: "BPN-NUMBER",
-    legalName: "Divape Company",
-    address: "15874 Sutteridge Trail",
-    city: "Covilhã",
-    country: "Portugal",
-    score: 41,
-    rating: "",
-    longitude: "107.6185727",
-    latitude: "-6.6889038",
-  },
-];
+  totalPages: 4,
+  totalElements: 50,
+  last: true,
+  size: 15,
+  number: 3,
+  sort: { empty: true, unsorted: true, sorted: false },
+  numberOfElements: 5,
+  first: false,
+  empty: false,
+};
 
 jest.mock("../../../components/services/dashboard-api", () => ({
   getAll: jest.fn().mockReturnValue(tableinfoData),
