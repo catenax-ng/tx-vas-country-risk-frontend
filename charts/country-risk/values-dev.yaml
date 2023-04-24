@@ -76,21 +76,21 @@ country-risk-backend:
     clientSecret: <path:value-added-service/data/country-risk/dev/keycloak#client-secret>
     clientId: <path:value-added-service/data/country-risk/dev/keycloak#client-id>
 
-  postgres:
-    auth:
-      postgresPassword: <path:value-added-service/data/country-risk/dev/postgresql#postgres-password>
-      password: <path:value-added-service/data/country-risk/dev/postgresql#password>
+postgres:
+  auth:
+    postgresPassword: <path:value-added-service/data/country-risk/dev/postgresql#postgres-password>
+    password: <path:value-added-service/data/country-risk/dev/postgresql#password>
 
-  pgadmin4:
-    secret:
-      path: value-added-service/data/country-risk/dev/pgadmin4
-    ingress:
-      hosts:
-        - host: vas-pgadmin4.dev.demo.catena-x.net
-          paths:
-            - path: /
-              pathType: Prefix
-      tls:
-        - hosts:
-            - vas-pgadmin4.dev.demo.catena-x.net
-          secretName: vas-pgadmin4.dev.demo.catena-x.net-tls
+pgadmin4:
+  secret:
+    path: value-added-service/data/country-risk/dev/pgadmin4
+  ingress:
+    hosts:
+      - host: vas-pgadmin4.dev.demo.catena-x.net
+        paths:
+          - path: /
+            pathType: Prefix
+    tls:
+      - hosts:
+          - vas-pgadmin4.dev.demo.catena-x.net
+        secretName: vas-pgadmin4.dev.demo.catena-x.net-tls
