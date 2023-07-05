@@ -27,6 +27,7 @@ import {
   getClientIdSemantic,
   getClientIdDigitalTwin,
   getCountryRiskClientId,
+  getCountryRiskAppId,
 } from "./EnvironmentService";
 import { error, info } from "./LogService";
 
@@ -39,7 +40,7 @@ const keycloakConfig = {
 const keycloakConfigCountryRisk = {
   url: getCentralIdp(),
   realm: "CX-Central",
-  clientId: getCountryRiskClientId(),
+  clientId: getCountryRiskAppId(),
 };
 
 const keycloakConfigSemantic = {
