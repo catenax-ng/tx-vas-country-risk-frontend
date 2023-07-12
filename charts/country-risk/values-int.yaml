@@ -66,6 +66,7 @@ country-risk-backend:
       application_partnersPoolUrl_bpdmAddressUrl: https://business-partners.int.demo.catena-x.net/companies/test-company/api/catena/output/addresses/search?
       application_partnersPoolUrl_bpdmSiteUrl: https://business-partners.int.demo.catena-x.net/companies/test-company/api/catena/output/sites/search?
       application_partnersPoolUrl_bpdmLegalUrl: https://business-partners.int.demo.catena-x.net/companies/test-company/api/catena/output/legal-entities/search?
+      vas_auth_url: https://centralidp.int.demo.catena-x.net
 
   applicationSecret:
     clientSecret: <path:value-added-service/data/country-risk/int/keycloak#country-risk-client-secret>
