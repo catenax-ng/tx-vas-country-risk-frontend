@@ -39,6 +39,7 @@ country-risk-frontend:
       REACT_APP_COUNTRY_RISK_API: 'https://vas-country-risk-backend.int.demo.catena-x.net'
       REACT_APP_PORTAL_FRONTEND: 'https://portal.int.demo.catena-x.net'
       REACT_APP_PORTAL_BACKEND: 'https://portal-backend.int.demo.catena-x.net'
+      REACT_APP_COUNTRY_RISK_CLIENT: Cl16-CX-CRisk
 
 country-risk-backend:
 
@@ -67,7 +68,6 @@ country-risk-backend:
       application_partnersPoolUrl_bpdmSiteUrl: https://business-partners.int.demo.catena-x.net/companies/test-company/api/catena/output/sites/search?
       application_partnersPoolUrl_bpdmLegalUrl: https://business-partners.int.demo.catena-x.net/companies/test-company/api/catena/output/legal-entities/search?
       vas_auth_url: https://centralidp.int.demo.catena-x.net
-      REACT_APP_COUNTRY_RISK_CLIENT: 'app9'
 
   applicationSecret:
     clientSecret: <path:value-added-service/data/country-risk/int/keycloak#country-risk-client-secret>
