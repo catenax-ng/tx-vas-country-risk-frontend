@@ -12,12 +12,7 @@ on:
     paths:
       - 'charts/country-risk/**'
   workflow_dispatch:
-    inputs:
-      node_image:
-        description: 'kindest/node image for k8s kind cluster'
-        default: 'kindest/node:v1.27.3'
-        required: false
-        type: string
+  # Trigger manually
   workflow_call: # Trigger by another workflow
     inputs:
       node_image:
