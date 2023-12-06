@@ -25,9 +25,9 @@
 replicaCount: 1
 
 image:
-  registry: "ghcr.io"
+  registry: "tractusx"
   # -- Name of the docker image
-  name: "catenax-ng/tx-vas-country-risk-frontend"
+  name: "vas-country-risk"
   pullPolicy: Always
   # -- Overrides the image tag whose default is the chart appVersion.
   tag: ""
@@ -64,6 +64,9 @@ securityContext:
   runAsUser: 101
   # -- Specifies the group ID that the process inside the container should run
   runAsGroup: 3000
+  # -- Specifies Seccomp profile
+  seccompProfile:
+    type: RuntimeDefault
   # -- Capabilities that the process inside the container should have
   capabilities:
     drop:
