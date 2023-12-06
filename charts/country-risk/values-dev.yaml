@@ -31,7 +31,7 @@ country-risk-frontend:
     name: "catenax-ng/tx-vas-country-risk-frontend"
     pullPolicy: Always
     # -- Overrides the image tag whose default is the chart appVersion.
-    tag: latest
+    tag: "dev"
 
   ingress:
     host: catenax-vas-dev.demo.catena-x.net
@@ -58,8 +58,11 @@ country-risk-backend:
   environment: dev
 
   image:
+    registry: "ghcr.io"
+    # -- Name of the docker image
+    name: "catenax-ng/tx-vas-country-risk-backend"
     pullPolicy: Always
-    # Overrides the image tag whose default is the chart appVersion.
+    # -- Overrides the image tag whose default is the chart appVersion.
     tag: "dev"
 
   ingress:
