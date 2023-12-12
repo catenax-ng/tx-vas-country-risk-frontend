@@ -1,0 +1,112 @@
+opensearch:
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    hosts:
+      - edc-country-risk-sharing-member-backend.int.demo.catena-x.net
+    tls:
+      - secretName: tls-secret
+        hosts:
+          - edc-country-risk-sharing-member-backend.int.demo.catena-x.net
+  masterService: ""
+  fullnameOverride: edc-country-risk-sharing-member-backend
+
+txdc:
+  install:
+    daps: false
+    postgresql: true
+    vault: false
+
+  participant:
+    id: "BPNL00000007OR16"
+
+  controlplane:
+    internationalDataSpaces:
+      id: TXDC-SHARING-MEMBER
+      description: Tractus-X Eclipse IDS Data Space Connector for Sharing Member
+      title: ""
+      maintainer: ""
+      curator: ""
+      catalogId: TXDC-SM-Catalog
+    endpoints:
+      # -- data management api, used by internal users, can be added to an ingress and must not be internet facing
+      management:
+        # -- authentication key, must be attached to each 'X-Api-Key' request header
+        authKey: <path:value-added-service/data/country-risk/int/edc#controlplane-auth>
+    ## Ingress declaration to expose the network service.
+    ingresses:
+      ## Public / Internet facing Ingress
+      - enabled: true
+        # -- The hostname to be used to precisely map incoming traffic onto the underlying network service
+        hostname: "sharing-member-edc.int.demo.catena-x.net"
+        className: "nginx"
+        # -- EDC endpoints exposed by this ingress resource
+        endpoints:
+          - management
+          - control
+          - protocol
+        # -- TLS [tls class](https://kubernetes.io/docs/concepts/services-networking/ingress/#tls) applied to the ingress resource
+        tls:
+          # -- Enables TLS on the ingress resource
+          enabled: true
+          # -- If present overwrites the default secret name
+          secretName: tls-secret
+    url:
+      # -- Explicitly declared url for reaching the ids api (e.g. if ingresses not used)
+      ids: ""
+    ssi:
+      miw:
+        url: "https://managed-identity-wallets-new.int.demo.catena-x.net"
+        authorityId: "BPNL00000003CRHK"
+      oauth:
+        tokenurl: "https://centralidp.int.demo.catena-x.net/auth/realms/CX-Central/protocol/openid-connect/token"
+        client:
+          id: "sa10"
+          secretAlias: country-risk/int/edc/CLIENT_SECRET
+
+  dataplane:
+    ## Ingress declaration to expose the network service.
+    ingresses:
+      ## Public / Internet facing Ingress
+      - enabled: true
+        # -- The hostname to be used to precisely map incoming traffic onto the underlying network service
+        hostname: "sharing-member-edc.int.demo.catena-x.net"
+        # -- EDC endpoints exposed by this ingress resource
+        endpoints:
+          - public
+        # -- Defines the [ingress class](https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-class)  to use
+        className: "nginx"
+        # -- TLS [tls class](https://kubernetes.io/docs/concepts/services-networking/ingress/#tls) applied to the ingress resource
+        tls:
+          # -- Enables TLS on the ingress resource
+          enabled: true
+          # -- If present overwrites the default secret name
+          secretName: tls-secret
+    url:
+      # -- Explicitly declared url for reaching the public api (e.g. if ingresses not used)
+      public: ""
+
+  postgresql:
+    jdbcUrl: "jdbc:postgresql://edc-sharing-member-postgres:5432/edc"
+    fullnameOverride: "edc-sharing-member-postgres"
+    username: user
+    password: password
+
+  vault:
+    hashicorp:
+      url: "https://vault.demo.catena-x.net"
+      token: <path:value-added-service/data/country-risk/int/edc#vault-token>
+      paths:
+        secret: /v1/value-added-service
+    secretNames:
+      transferProxyTokenEncryptionAesKey: country-risk/int/edc/DATA_ENCRYPTION_KEYS_ALIAS
+      transferProxyTokenSignerPrivateKey: country-risk/int/edc/DAPS_PRIVATE_KEY
+      transferProxyTokenSignerPublicKey: country-risk/int/edc/DAPS_PUBLIC_KEY
+      dapsPrivateKey: country-risk/int/edc/DAPS_PRIVATE_KEY
+      dapsPublicKey: country-risk/int/edc/DAPS_PUBLIC_KEY
+
+  backendService:
+    httpProxyTokenReceiverUrl: "http://edc-country-risk-sharing-member-backend.int.demo.catena-x.net"
+

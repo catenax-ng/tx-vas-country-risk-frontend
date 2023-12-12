@@ -1,0 +1,31 @@
+postgres:
+  enabled: true
+  auth:
+    password: &psqlPassword "psql_password"
+    username: &psqlUsername "postgresql_sandbox_user"
+    database: edc
+  persistence:
+    enabled: true
+
+txdc:
+  postgresql:
+    enabled: true
+    jdbcUrl: "jdbc:postgresql://txdc-postgres:5432/edc"
+    username: *psqlUsername
+    password: *psqlPassword
+  vault:
+    hashicorp:
+      enabled: true
+      url: "https://vault.demo.catena-x.net"
+      token: ""
+      paths:
+        secret: "/v1/edc"
+      healthCheck:
+        enabled: true
+        standbyOk: true
+
+  backendService:
+    httpProxyTokenReceiverUrl: "http://txdc-backend"
+  serviceAccount:
+    create: false
+

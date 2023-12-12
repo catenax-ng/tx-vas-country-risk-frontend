@@ -1,0 +1,16 @@
+project: project-bpdm
+source:
+  repoURL: 'https://eclipse-tractusx.github.io/charts/dev'
+  path: int/edc/chart
+  targetRevision: main
+  plugin:
+    env:
+      - name: AVP_SECRET
+        value: vault-secret
+      - name: helm_args
+        value: >-
+          -f
+          https://raw.githubusercontent.com/catenax-ng/tx-vas-country-risk-frontend/helm-env/charts/edc/chart/country-risk-sharing-values.yaml
+destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: product-value-added-service
