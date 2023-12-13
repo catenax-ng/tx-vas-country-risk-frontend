@@ -19,7 +19,7 @@ txdc:
       # -- data management api, used by internal users, can be added to an ingress and must not be internet facing
       management:
         # -- authentication key, must be attached to each 'X-Api-Key' request header
-        authKey: <path:value-added-service/data/country-risk/int/edc#controlplane-auth>
+        authKey: #d<>-x9U-\W9'9mb7<08Ro;t
     ## Ingress declaration to expose the network service.
     ingresses:
       ## Public / Internet facing Ingress
@@ -50,7 +50,7 @@ txdc:
         tokenurl: "https://centralidp.int.demo.catena-x.net/auth/realms/CX-Central/protocol/openid-connect/token"
         client:
           id: "sa233"
-          secretAlias: "dev/edc/gate/CLIENT_SECRET"
+          secretAlias: wlUfawg0SPe5aZexnZVM2F3IhUgzmaca
 
   dataplane:
     ## Ingress declaration to expose the network service.
@@ -83,7 +83,7 @@ txdc:
   vault:
     hashicorp:
       url: "https://vault.demo.catena-x.net"
-      token: <path:bpdm/data/dev/edc/gate#vault-token>
+      token: s.mnHAD9S20ebvV8GHn3mLZlab
       paths:
         secret: /v1/bpdm
     secretNames:
