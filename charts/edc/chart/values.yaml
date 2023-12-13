@@ -21,7 +21,7 @@ txdc:
         enabled: true
         standbyOk: true
       url: "https://vault.demo.catena-x.net"
-      token: <path:bpdm/data/dev/edc/gate#vault-token>
+      token: <path:value-added-service/data/country-risk/int/edc#vault-token>
       paths:
         secret: /v1/bpdm
     secretNames:
