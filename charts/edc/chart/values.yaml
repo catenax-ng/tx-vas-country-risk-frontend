@@ -23,13 +23,13 @@ txdc:
       url: "https://vault.demo.catena-x.net"
       token: <path:value-added-service/data/country-risk/int/edc#vault-token-cr>
       paths:
-        secret: /v1/bpdm
+        secret: /v1/value-added-service
     secretNames:
-      transferProxyTokenEncryptionAesKey: dev/edc/gate/DATA_ENCRYPTION_KEYS_ALIAS
-      transferProxyTokenSignerPrivateKey: dev/edc/gate/DAPS_PRIVATE_KEY
-      transferProxyTokenSignerPublicKey: dev/edc/gate/DAPS_PUBLIC_KEY
-      dapsPrivateKey: dev/edc/gate/DAPS_PRIVATE_KEY
-      dapsPublicKey: dev/edc/gate/DAPS_PUBLIC_KEY
+      transferProxyTokenEncryptionAesKey: country-risk/int/edcDATA_ENCRYPTION_KEYS_ALIAS
+      transferProxyTokenSignerPrivateKey: country-risk/int/edcDAPS_PRIVATE_KEY
+      transferProxyTokenSignerPublicKey: country-risk/int/edcDAPS_PUBLIC_KEY
+      dapsPrivateKey: country-risk/int/edcDAPS_PRIVATE_KEY
+      dapsPublicKey: country-risk/int/edcDAPS_PUBLIC_KEY
 
   serviceAccount:
     create: false
@@ -54,7 +54,7 @@ txdc:
       # -- data management api, used by internal users, can be added to an ingress and must not be internet facing
       management:
         # -- authentication key, must be attached to each 'X-Api-Key' request header
-        authKey: <path:bpdm/data/dev/edc/gate#controlplane-auth>
+        authKey: <path:value-added-service/data/country-risk/int/edc#controlplane-auth>
     ## Ingress declaration to expose the network service.
     ingresses:
       ## Public / Internet facing Ingress
