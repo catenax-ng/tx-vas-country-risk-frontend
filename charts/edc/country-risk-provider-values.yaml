@@ -83,9 +83,9 @@ txdc:
   vault:
     hashicorp:
       url: "https://vault.demo.catena-x.net"
-      token: <path:value-added-service/data/country-risk/int/edc#vault-token>
+      token: <path:bpdm/data/dev/edc/gate#vault-token>
       paths:
-        secret: /v1/value-added-service
+        secret: /v1/bpdm
     secretNames:
       transferProxyTokenEncryptionAesKey: dev/edc/gate/DATA_ENCRYPTION_KEYS_ALIAS
       transferProxyTokenSignerPrivateKey: dev/edc/gate/DAPS_PRIVATE_KEY
