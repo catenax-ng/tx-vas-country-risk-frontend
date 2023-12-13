@@ -87,10 +87,9 @@ txdc:
       paths:
         secret: /v1/value-added-service
     secretNames:
-      transferProxyTokenEncryptionAesKey: dev/edc/gate/DATA_ENCRYPTION_KEYS_ALIAS
-      transferProxyTokenSignerPrivateKey: dev/edc/gate/DAPS_PRIVATE_KEY
-      dapsPrivateKey: dev/edc/gate/DAPS_PRIVATE_KEY
-
+      transferProxyTokenEncryptionAesKey: country-risk/int/edc/DATA_ENCRYPTION_KEYS_ALIAS
+      transferProxyTokenSignerPrivateKey: country-risk/int/edc/DAPS_PRIVATE_KEY
+      dapsPrivateKey: country-risk/int/edc/DAPS_PRIVATE_KEY
 
   backendService:
     httpProxyTokenReceiverUrl: "http://edc-country-risk-backend.int.demo.catena-x.net"
