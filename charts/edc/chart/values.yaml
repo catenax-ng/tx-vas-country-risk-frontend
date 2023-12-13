@@ -27,7 +27,9 @@ txdc:
     secretNames:
       transferProxyTokenEncryptionAesKey: country-risk/int/edc/DATA_ENCRYPTION_KEYS_ALIAS
       transferProxyTokenSignerPrivateKey: country-risk/int/edc/DAPS_PRIVATE_KEY
+      transferProxyTokenSignerPublicKey: country-risk/int/edc/DAPS_PUBLIC_KEY
       dapsPrivateKey: country-risk/int/edc/DAPS_PRIVATE_KEY
+      dapsPublicKey: country-risk/int/edc/DAPS_PUBLIC_KEY
 
   serviceAccount:
     create: false
@@ -106,7 +108,6 @@ txdc:
     url:
       # -- Explicitly declared url for reaching the public api (e.g. if ingresses not used)
       public: ""
-
 
 
   backendService:
