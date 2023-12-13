@@ -29,7 +29,7 @@ txdc:
       transferProxyTokenSignerPrivateKey: country-risk/int/edc/DAPS_PRIVATE_KEY
       transferProxyTokenSignerPublicKey: country-risk/int/edc/DAPS_PUBLIC_KEY
       dapsPrivateKey: country-risk/int/edc/DAPS_PRIVATE_KEY
-      dapsPublicKey: country-risk/int/edc/DAPS_PUBLIC_KEY
+
 
   serviceAccount:
     create: false
