@@ -1,4 +1,39 @@
+postgres:
+  enabled: true
+  auth:
+    password: &psqlPassword "psql_password"
+    username: &psqlUsername "postgresql_sandbox_user"
+    database: edc
+  persistence:
+    enabled: true
+
 txdc:
+  postgresql:
+    enabled: true
+    jdbcUrl: "jdbc:postgresql://edc-sharing-member-postgres:5432/edc"
+    fullnameOverride: "edc-sharing-member-postgres"
+    username: user
+    password: password
+  vault:
+    hashicorp:
+      enabled: true
+      healthCheck:
+        enabled: true
+        standbyOk: true
+      url: "https://vault.demo.catena-x.net"
+      token: <path:value-added-service/data/country-risk/int/edc#vault-token-cr>
+      paths:
+        secret: /v1/value-added-service
+    secretNames:
+      transferProxyTokenEncryptionAesKey: country-risk/int/edc-provider/DATA_ENCRYPTION_KEYS_ALIAS
+      transferProxyTokenSignerPrivateKey: country-risk/int/edc-provider/DAPS_PRIVATE_KEY
+      transferProxyTokenSignerPublicKey: country-risk/int/edc-provider/DAPS_PUBLIC_KEY
+      dapsPrivateKey: country-risk/int/edc-provider/DAPS_PRIVATE_KEY
+      dapsPublicKey: country-risk/int/edc-provider/DAPS_PUBLIC_KEY
+
+  serviceAccount:
+    create: false
+
   install:
     daps: false
     postgresql: true
@@ -9,12 +44,12 @@ txdc:
 
   controlplane:
     internationalDataSpaces:
-      id: TXDC-SHARING-MEMBER
+      id: TXDC-Country-Risk-SHARING-MEMBER
       description: Tractus-X Eclipse IDS Data Space Connector for Sharing Member
       title: ""
       maintainer: ""
       curator: ""
-      catalogId: TXDC-SM-Catalog
+      catalogId: TXDC-Country-Risk-Catalog
     endpoints:
       # -- data management api, used by internal users, can be added to an ingress and must not be internet facing
       management:
@@ -41,6 +76,7 @@ txdc:
     url:
       # -- Explicitly declared url for reaching the ids api (e.g. if ingresses not used)
       ids: ""
+
     ssi:
       miw:
         url: "https://managed-identity-wallets-new.int.demo.catena-x.net"
@@ -57,7 +93,7 @@ txdc:
       ## Public / Internet facing Ingress
       - enabled: true
         # -- The hostname to be used to precisely map incoming traffic onto the underlying network service
-        hostname: "sharing-member-edc.int.demo.catena-x.net"
+        hostname: "country-risk-edc.int.demo.catena-x.net"
         # -- EDC endpoints exposed by this ingress resource
         endpoints:
           - public
@@ -73,24 +109,6 @@ txdc:
       # -- Explicitly declared url for reaching the public api (e.g. if ingresses not used)
       public: ""
 
-  postgresql:
-    jdbcUrl: "jdbc:postgresql://edc-sharing-member-postgres:5432/edc"
-    fullnameOverride: "edc-sharing-member-postgres"
-    username: user
-    password: password
-
-  vault:
-    hashicorp:
-      url: "https://vault.demo.catena-x.net"
-      token: <path:value-added-service/data/country-risk/int/edc#vault-token>
-      paths:
-        secret: /v1/value-added-service
-    secretNames:
-      transferProxyTokenEncryptionAesKey: country-risk/int/edc/DATA_ENCRYPTION_KEYS_ALIAS
-      transferProxyTokenSignerPrivateKey: country-risk/int/edc/DAPS_PRIVATE_KEY
-      transferProxyTokenSignerPublicKey: country-risk/int/edc/DAPS_PUBLIC_KEY
-      dapsPrivateKey: country-risk/int/edc/DAPS_PRIVATE_KEY
-      dapsPublicKey: country-risk/int/edc/DAPS_PUBLIC_KEY
 
   backendService:
     httpProxyTokenReceiverUrl: "http://edc-country-risk-sharing-member-backend.int.demo.catena-x.net"
