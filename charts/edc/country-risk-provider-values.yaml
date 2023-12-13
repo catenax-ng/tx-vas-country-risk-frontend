@@ -49,8 +49,8 @@ txdc:
       oauth:
         tokenurl: "https://centralidp.int.demo.catena-x.net/auth/realms/CX-Central/protocol/openid-connect/token"
         client:
-          id: "sa10"
-          secretAlias: country-risk/int/edc/CLIENT_SECRET
+          id: "sa233"
+          secretAlias: "dev/edc/gate/CLIENT_SECRET"
 
   dataplane:
     ## Ingress declaration to expose the network service.
