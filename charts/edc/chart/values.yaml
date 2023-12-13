@@ -25,11 +25,11 @@ txdc:
       paths:
         secret: /v1/value-added-service
     secretNames:
-      transferProxyTokenEncryptionAesKey: country-risk/int/edc/DATA_ENCRYPTION_KEYS_ALIAS-teste
-      transferProxyTokenSignerPrivateKey: country-risk/int/edc/DAPS_PRIVATE_KEY-teste
-      transferProxyTokenSignerPublicKey: country-risk/int/edc/DAPS_PUBLIC_KEY-teste
-      dapsPrivateKey: country-risk/int/edc/DAPS_PRIVATE_KEY-teste
-      dapsPublicKey: country-risk/int/edc/DAPS_PUBLIC_KEY-teste
+      transferProxyTokenEncryptionAesKey: country-risk/int/edc/DATA_ENCRYPTION_KEYS_ALIAS
+      transferProxyTokenSignerPrivateKey: country-risk/int/edc/DAPS_PRIVATE_KEY
+      transferProxyTokenSignerPublicKey: country-risk/int/edc/DAPS_PUBLIC_KEY
+      dapsPrivateKey: country-risk/int/edc/DAPS_PRIVATE_KEY
+      dapsPublicKey: country-risk/int/edc/DAPS_PUBLIC_KEY
 
   serviceAccount:
     create: false
