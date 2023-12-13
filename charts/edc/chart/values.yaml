@@ -25,10 +25,11 @@ txdc:
       paths:
         secret: /v1/value-added-service
     secretNames:
-      transferProxyTokenEncryptionAesKey: country-risk/int/edc/DATA_ENCRYPTION_KEYS_ALIAS
-      transferProxyTokenSignerPrivateKey: country-risk/int/edc/DAPS_PRIVATE_KEY
-      dapsPrivateKey: country-risk/int/edc/DAPS_PRIVATE_KEY
-
+      transferProxyTokenEncryptionAesKey: country-risk/int/edc-provider/DATA_ENCRYPTION_KEYS_ALIAS
+      transferProxyTokenSignerPrivateKey: country-risk/int/edc-provider/DAPS_PRIVATE_KEY
+      transferProxyTokenSignerPublicKey: country-risk/int/edc-provider/DAPS_PUBLIC_KEY
+      dapsPrivateKey: country-risk/int/edc-provider/DAPS_PRIVATE_KEY
+      dapsPublicKey: country-risk/int/edc-provider/DAPS_PUBLIC_KEY
 
   serviceAccount:
     create: false
@@ -84,7 +85,7 @@ txdc:
         tokenurl: "https://centralidp.int.demo.catena-x.net/auth/realms/CX-Central/protocol/openid-connect/token"
         client:
           id: "sa233"
-          secretAlias: "country-risk/int/edc/CLIENT_SECRET"
+          secretAlias: "country-risk/int/edc-provider/CLIENT_SECRET"
 
   dataplane:
     ## Ingress declaration to expose the network service.
