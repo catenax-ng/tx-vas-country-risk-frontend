@@ -40,7 +40,7 @@ txdc:
     vault: false
 
   participant:
-    id: "BPNL00000007OR20"
+    id: "BPNL00000007OR16"
 
   controlplane:
     internationalDataSpaces:
