@@ -10,8 +10,8 @@ postgres:
 txdc:
   postgresql:
     enabled: true
-    jdbcUrl: "jdbc:postgresql://edc-sharing-member-postgres:5432/edc"
-    fullnameOverride: "edc-sharing-member-postgres"
+    jdbcUrl: "jdbc:postgresql://edc-consumer-member-postgres:5432/edc"
+    fullnameOverride: "edc-consumer-member-postgres"
     username: user
     password: password
   vault:
@@ -105,5 +105,5 @@ txdc:
 
 
   backendService:
-    httpProxyTokenReceiverUrl: "http://edc-country-risk-sharing-member-backend.int.demo.catena-x.net"
+    httpProxyTokenReceiverUrl: "http://edc-country-risk-consumer-member-backend.int.demo.catena-x.net"
 

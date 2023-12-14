@@ -24,12 +24,7 @@ txdc:
       token: <path:value-added-service/data/country-risk/int/edc#vault-token-cr>
       paths:
         secret: /v1/value-added-service
-    secretNames:
-      transferProxyTokenEncryptionAesKey: country-risk/int/edc-provider/DATA_ENCRYPTION_KEYS_ALIAS
-      transferProxyTokenSignerPrivateKey: country-risk/int/edc-provider/DAPS_PRIVATE_KEY
-      transferProxyTokenSignerPublicKey: country-risk/int/edc-provider/DAPS_PUBLIC_KEY
-      dapsPrivateKey: country-risk/int/edc-provider/DAPS_PRIVATE_KEY
-      dapsPublicKey: country-risk/int/edc-provider/DAPS_PUBLIC_KEY
+
 
   serviceAccount:
     create: false
@@ -84,7 +79,7 @@ txdc:
       oauth:
         tokenurl: "https://centralidp.int.demo.catena-x.net/auth/realms/CX-Central/protocol/openid-connect/token"
         client:
-          id: "sa233"
+          id: "sa681"
           secretAlias: "country-risk/int/edc-provider/CLIENT_SECRET"
 
   dataplane:
