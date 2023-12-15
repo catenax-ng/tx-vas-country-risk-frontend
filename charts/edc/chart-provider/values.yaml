@@ -21,7 +21,7 @@ txdc:
         enabled: true
         standbyOk: true
       url: "https://vault.demo.catena-x.net"
-      token: <path:value-added-service/data/country-risk/int/edc#vault-token-bpdm>
+      token: <path:value-added-service/data/country-risk/int/edc#vault-token-cr>
       paths:
         secret: /v1/value-added-service
 
@@ -35,7 +35,7 @@ txdc:
     vault: false
 
   participant:
-    id: "BPNL00000003CUFH"
+    id: "BPNL00000007D968"
 
   controlplane:
     internationalDataSpaces:
