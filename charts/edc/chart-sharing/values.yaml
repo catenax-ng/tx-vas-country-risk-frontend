@@ -24,6 +24,12 @@ txdc:
       token: <path:value-added-service/data/country-risk/int/edc#vault-token-cr>
       paths:
         secret: /v1/value-added-service
+    secretNames:
+      transferProxyTokenEncryptionAesKey: country-risk/int/edc-provider/DATA_ENCRYPTION_KEYS_ALIAS
+      transferProxyTokenSignerPrivateKey: country-risk/int/edc-provider/DAPS_PRIVATE_KEY
+      transferProxyTokenSignerPublicKey: country-risk/int/edc-provider/DAPS_PUBLIC_KEY
+      dapsPrivateKey: country-risk/int/edc-provider/DAPS_PRIVATE_KEY
+      dapsPublicKey: country-risk/int/edc-provider/DAPS_PUBLIC_KEY
 
   serviceAccount:
     create: false
