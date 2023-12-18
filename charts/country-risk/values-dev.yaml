@@ -63,7 +63,7 @@ country-risk-backend:
     name: "catenax-ng/tx-vas-country-risk-backend"
     pullPolicy: Always
     # -- Overrides the image tag whose default is the chart appVersion.
-    tag: "latest"
+    tag: "dev"
 
   ingress:
     enabled: true
