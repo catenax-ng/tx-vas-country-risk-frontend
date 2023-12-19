@@ -107,4 +107,4 @@ txdc:
 
 
   backendService:
-    httpProxyTokenReceiverUrl: "http://edc-country-risk-backend.int.demo.catena-x.net"
+    httpProxyTokenReceiverUrl: "https://vas-country-risk-backend.int.demo.catena-x.net/api/edc/edrEndpoint"
