@@ -75,6 +75,8 @@ country-risk-backend:
       application_partnersPoolUrl_bpdmSiteUrl: https://business-partners.int.demo.catena-x.net/companies/test-company/api/catena/output/sites/search?
       application_partnersPoolUrl_bpdmLegalUrl: https://business-partners.int.demo.catena-x.net/companies/test-company/api/catena/output/legal-entities/search?
       vas_auth_url: https://centralidp.int.demo.catena-x.net
+      application_bpdm_consumerManagementUrl: https://country-risk-consumer-member-edc.int.demo.catena-x.net/management/v2
+      application_bpdm_gateProviderProtocolUrl: https://gate-edc.int.demo.catena-x.net/api/v1/dsp
 
 
   applicationSecret:
