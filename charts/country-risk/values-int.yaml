@@ -81,7 +81,7 @@ country-risk-backend:
       application_bpdm_policyBpn: BPNL00000007OR16
       application_edc_enabled: 'true'
       vas_auth_url: https://centralidp.int.demo.catena-x.net
-
+      LOGGING_LEVEL_org_eclipse_tractusx_valueaddedservice_service_logic_EDCLogicService: DEBUG
 
   applicationSecret:
     clientSecret: <path:value-added-service/data/country-risk/int/keycloak#country-risk-gate-client-secret>
