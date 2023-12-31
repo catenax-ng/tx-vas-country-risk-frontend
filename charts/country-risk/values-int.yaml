@@ -84,8 +84,8 @@ country-risk-backend:
 
 
   applicationSecret:
-    clientSecret: <path:value-added-service/data/country-risk/int/keycloak#country-risk-client-secret>
-    clientId: <path:value-added-service/data/country-risk/int/keycloak#country-risk-client-id>
+    clientSecret: <path:value-added-service/data/country-risk/int/keycloak#country-risk-gate-client-secret>
+    clientId: <path:value-added-service/data/country-risk/int/keycloak#country-risk-gate-client-id>
     gateClientSecret: <path:value-added-service/data/country-risk/int/keycloak#country-risk-gate-client-secret>
     gateClientId: <path:value-added-service/data/country-risk/int/keycloak#country-risk-gate-client-id>
     poolClientSecret: <path:value-added-service/data/country-risk/int/keycloak#country-risk-pool-client-secret>
