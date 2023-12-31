@@ -87,7 +87,6 @@ country-risk-backend:
       application_bpdm_gateProviderProtocolUrl: http://localhost:8080/gateProviderProtocolUrl?
       application_bpdm_gateProviderId: BPNL0000000XXX
       application_bpdm_policyBpn: BPNL0000000XXX
-      application_bpdm_apiKey: XXXXXXXXXX
       application_edc_enabled: 'false'
       vas_auth_url: https://centralidp.dev.demo.catena-x.net
 
