@@ -79,14 +79,26 @@ country-risk-backend:
       APPLICATION_HOST: http://localhost:8080/api/dashboard
       SECURITY_ENABLED: 'true'
       # -- Endpoints for BPDM output gate
-      application_partnersPoolUrl_bpdmAddressUrl: https://business-partners.dev.demo.catena-x.net/companies/test-company/api/catena/output/addresses/search?
-      application_partnersPoolUrl_bpdmSiteUrl: https://business-partners.dev.demo.catena-x.net/companies/test-company/api/catena/output/sites/search?
-      application_partnersPoolUrl_bpdmLegalUrl: https://business-partners.dev.demo.catena-x.net/companies/test-company/api/catena/output/legal-entities/search?
+      application_bpdm_addressUrl: https://business-partners.dev.demo.catena-x.net/pool/api/catena/addresses/search?
+      application_bpdm_siteUrl: https://business-partners.dev.demo.catena-x.net/pool/api/catena/sites/search?
+      application_bpdm_legalUrl: https://business-partners.dev.demo.catena-x.net/pool/api/catena/legal-entities/search?
+      application_bpdm_genericUrl: https://business-partners.dev.demo.catena-x.net/companies/test-company/api/catena/output/business-partners/search?
+      application_bpdm_consumerManagementUrl: http://localhost:8080/consumerManagementUrl?
+      application_bpdm_gateProviderProtocolUrl: http://localhost:8080/gateProviderProtocolUrl?
+      application_bpdm_gateProviderId: BPNL0000000XXX
+      application_bpdm_policyBpn: BPNL0000000XXX
+      application_bpdm_apiKey: XXXXXXXXXX
+      application_edc_enabled: false
       vas_auth_url: https://centralidp.dev.demo.catena-x.net
 
   applicationSecret:
-    clientSecret: <path:value-added-service/data/country-risk/dev/keycloak#country-risk-client-secret>
-    clientId: <path:value-added-service/data/country-risk/dev/keycloak#country-risk-client-id>
+    clientSecret: <path:value-added-service/data/country-risk/dev/keycloak#country-risk-gate-client-secret>
+    clientId: <path:value-added-service/data/country-risk/dev/keycloak#country-risk-gate-client-id>
+    gateClientSecret: <path:value-added-service/data/country-risk/dev/keycloak#country-risk-gate-client-secret>
+    gateClientId: <path:value-added-service/data/country-risk/dev/keycloak#country-risk-gate-client-id>
+    poolClientSecret: <path:value-added-service/data/country-risk/dev/keycloak#country-risk-pool-client-secret>
+    poolClientId: <path:value-added-service/data/country-risk/dev/keycloak#country-risk-pool-client-id>
+    edcApiKey: <path:value-added-service/data/country-risk/dev/edc#controlplane-auth>
 
 postgres:
   auth:
