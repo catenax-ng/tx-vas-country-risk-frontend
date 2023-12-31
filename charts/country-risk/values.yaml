@@ -302,7 +302,7 @@ country-risk-backend:
       application_bpdm_gateProviderId: BPNL0000000XXX
       application_bpdm_policyBpn: BPNL0000000XXX
       application_bpdm_apiKey: XXXXXXXXXX
-      application_edc_enabled: false
+      application_edc_enabled: 'false'
       vas_auth_url: http://localhost:8081
 
 
