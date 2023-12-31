@@ -68,8 +68,8 @@ country-risk-backend:
     # Specifies whether a configmap should be created
     data:
       spring_profiles_active: int
-      APPLICATION_HOST: http://localhost:8080/api/dashboard
-      SECURITY_ENABLED: 'true'
+      application_host: http://localhost:8080/api/dashboard
+      security_enabled: 'false'
       # -- Endpoints for BPDM output gate
       application_bpdm_addressUrl: https://business-partners.int.demo.catena-x.net/pool/api/catena/addresses/search?
       application_bpdm_siteUrl: https://business-partners.int.demo.catena-x.net/pool/api/catena/sites/search?
