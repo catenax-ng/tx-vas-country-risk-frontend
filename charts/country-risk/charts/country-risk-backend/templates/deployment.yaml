@@ -92,7 +92,7 @@ spec:
                 secretKeyRef:
                   name: {{ include "vas.applicationSecret.name" . }}
                   key: poolKeycloakClientId
-            - name: VAS_POOL_CLIENTSECRET
+            - name: VAS_POOLCLIENT_CLIENTSECRET
               valueFrom:
                 secretKeyRef:
                   name: {{ include "vas.applicationSecret.name" . }}
