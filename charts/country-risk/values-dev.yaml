@@ -90,7 +90,7 @@ country-risk-backend:
       application_edc_enabled: 'false'
       vas_auth_url: https://centralidp.dev.demo.catena-x.net
       logging_level_org_springframework_boot: DEBUG
-      management_endpoint_env_keys-to-sanitize: '*'
+      management_endpoint_env_keys-to-sanitize: ''
 
   applicationSecret:
     clientSecret: <path:value-added-service/data/country-risk/dev/keycloak#country-risk-gate-client-secret>
