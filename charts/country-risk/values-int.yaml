@@ -22,6 +22,14 @@ country-risk-frontend:
   springProfiles:
     - int
 
+  image:
+    registry: "ghcr.io"
+    # -- Name of the docker image
+    name: "catenax-ng/tx-vas-country-risk-frontend"
+    pullPolicy: Always
+    # -- Overrides the image tag whose default is the chart appVersion.
+    tag: "latest"
+
   appName: country-risk-frontend
   environment: int
 
