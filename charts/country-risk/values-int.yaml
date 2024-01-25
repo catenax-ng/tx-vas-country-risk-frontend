@@ -47,7 +47,7 @@ country-risk-frontend:
       REACT_APP_COUNTRY_RISK_API: 'https://vas-country-risk-backend.int.demo.catena-x.net'
       REACT_APP_PORTAL_FRONTEND: 'https://portal.int.demo.catena-x.net'
       REACT_APP_PORTAL_BACKEND: 'https://portal-backend.int.demo.catena-x.net'
-      REACT_APP_COUNTRY_RISK_CLIENT: app498
+      REACT_APP_COUNTRY_RISK_CLIENT: app96
 
 country-risk-backend:
 
