@@ -80,7 +80,7 @@ txdc:
       oauth:
         tokenurl: "https://centralidp.int.demo.catena-x.net/auth/realms/CX-Central/protocol/openid-connect/token"
         client:
-          id: "sa121"
+          id: "sa122"
           secretAlias: "country-risk/int/edc-provider/CLIENT_SECRET"
 
   dataplane:

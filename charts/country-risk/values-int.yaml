@@ -85,9 +85,9 @@ country-risk-backend:
       application_bpdm_genericUrl: https://business-partners.int.demo.catena-x.net/companies/test-company/api/catena/output/business-partners/search?
       application_bpdm_consumerManagementUrl: https://country-risk-consumer-member-edc.int.demo.catena-x.net/management
       application_bpdm_gateProviderProtocolUrl: https://gate-edc.int.demo.catena-x.net/api/v1/dsp
-      application_bpdm_gateProviderId: BPNL00000007D968
-      application_bpdm_policyBpn: BPNL00000007OR16
-      application_edc_enabled: 'false'
+      application_bpdm_gateProviderId: BPNL00000007RF54
+      application_bpdm_policyBpn: BPNL00000007RWSM
+      application_edc_enabled: 'true'
       vas_auth_url: https://centralidp.int.demo.catena-x.net
       LOGGING_LEVEL_org_eclipse_tractusx_valueaddedservice_service_logic_EDCLogicService: DEBUG
 
