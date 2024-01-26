@@ -36,7 +36,7 @@ txdc:
     vault: false
 
   participant:
-    id: "BPNL00000007RF54"
+    id: "BPNL00000007RWSM"
 
   controlplane:
     internationalDataSpaces:
