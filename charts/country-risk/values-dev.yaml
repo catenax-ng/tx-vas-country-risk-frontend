@@ -26,9 +26,9 @@ country-risk-frontend:
   environment: dev
 
   image:
-    registry: "ghcr.io"
+    registry: "tractusx"
     # -- Name of the docker image
-    name: "eclipse-tractusx/vas-country-risk"
+    name: "vas-country-risk"
     pullPolicy: Always
     # -- Overrides the image tag whose default is the chart appVersion.
     tag: "latest"
