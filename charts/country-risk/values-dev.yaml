@@ -28,7 +28,7 @@ country-risk-frontend:
   image:
     registry: "ghcr.io"
     # -- Name of the docker image
-    name: "catenax-ng/tx-vas-country-risk-frontend"
+    name: "eclipse-tractusx/vas-country-risk"
     pullPolicy: Always
     # -- Overrides the image tag whose default is the chart appVersion.
     tag: "latest"
