@@ -60,7 +60,7 @@ country-risk-backend:
   image:
     registry: "tractusx"
     # -- Name of the docker image
-    name: "vas-country"
+    name: "vas-country-risk-backend"
     pullPolicy: Always
     # -- Overrides the image tag whose default is the chart appVersion.
     tag: "latest"
