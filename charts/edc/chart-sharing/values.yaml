@@ -10,8 +10,8 @@ postgres:
 txdc:
   postgresql:
     enabled: true
-    jdbcUrl: "jdbc:postgresql://edc-consumer-member-postgres:5432/edc"
-    fullnameOverride: "edc-consumer-member-postgres"
+    jdbcUrl: "jdbc:postgresql://edc-consumer-member-legacy-postgres:5432/edc"
+    fullnameOverride: "edc-consumer-member-legacy-postgres"
     username: user
     password: password
   vault:
@@ -56,7 +56,7 @@ txdc:
       ## Public / Internet facing Ingress
       - enabled: true
         # -- The hostname to be used to precisely map incoming traffic onto the underlying network service
-        hostname: "country-risk-consumer-member-edc.int.demo.catena-x.net"
+        hostname: "country-risk-consumer-member-edc-legacy.int.demo.catena-x.net"
         className: "nginx"
         # -- EDC endpoints exposed by this ingress resource
         endpoints:
@@ -89,7 +89,7 @@ txdc:
       ## Public / Internet facing Ingress
       - enabled: true
         # -- The hostname to be used to precisely map incoming traffic onto the underlying network service
-        hostname: "country-risk-consumer-member-edc.int.demo.catena-x.net"
+        hostname: "country-risk-consumer-member-edc-legacy.int.demo.catena-x.net"
         # -- EDC endpoints exposed by this ingress resource
         endpoints:
           - public
@@ -107,5 +107,5 @@ txdc:
 
 
   backendService:
-    httpProxyTokenReceiverUrl: "https://vas-country-risk-backend.int.demo.catena-x.net/api/edc/edrEndpoint"
+    httpProxyTokenReceiverUrl: "https://vas-country-risk-backend-legacy.int.demo.catena-x.net/api/edc/edrEndpoint"
 

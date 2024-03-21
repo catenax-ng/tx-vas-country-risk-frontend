@@ -1,11 +1,42 @@
+postgres:
+  enabled: true
+  auth:
+    password: &psqlPassword "psql_password"
+    username: &psqlUsername "postgresql_sandbox_user"
+    database: edc
+  persistence:
+    enabled: true
+
 txdc:
+  postgresql:
+    enabled: true
+    jdbcUrl: "jdbc:postgresql://edc-country-risk-postgres:5432/edc"
+    fullnameOverride: "edc-country-risk-postgres"
+    username: user
+    password: password
+  vault:
+    hashicorp:
+      enabled: true
+      healthCheck:
+        enabled: true
+        standbyOk: true
+      url: "https://vault.demo.catena-x.net"
+      token: <path:value-added-service/data/country-risk/int/edc#vault-token-cr>
+      paths:
+        secret: /v1/value-added-service
+    secretNames:
+      transferProxyTokenEncryptionAesKey: country-risk/int/edc-provider/DATA_ENCRYPTION_KEYS_ALIAS
+
+  serviceAccount:
+    create: false
+
   install:
     daps: false
     postgresql: true
     vault: false
 
   participant:
-    id: "BPNL00000007OR16"
+    id: "BPNL00000007RF54"
 
   controlplane:
     internationalDataSpaces:
@@ -49,8 +80,8 @@ txdc:
       oauth:
         tokenurl: "https://centralidp.int.demo.catena-x.net/auth/realms/CX-Central/protocol/openid-connect/token"
         client:
-          id: "sa233"
-          secretAlias: "country-risk/int/edc/CLIENT_SECRET"
+          id: "sa121"
+          secretAlias: "country-risk/int/edc-provider/CLIENT_SECRET"
 
   dataplane:
     ## Ingress declaration to expose the network service.
@@ -74,28 +105,6 @@ txdc:
       # -- Explicitly declared url for reaching the public api (e.g. if ingresses not used)
       public: ""
 
-  postgresql:
-    jdbcUrl: "jdbc:postgresql://edc-country-risk-postgres:5432/edc"
-    fullnameOverride: "edc-country-risk-postgres"
-    username: user
-    password: password
-
-  vault:
-    hashicorp:
-      enabled: true
-      healthCheck:
-        enabled: true
-        standbyOk: true
-      url: "https://vault.demo.catena-x.net"
-      token: <path:value-added-service/data/country-risk/int/edc#vault-token-cr>
-      paths:
-        secret: /v1/value-added-service
-    secretNames:
-      transferProxyTokenEncryptionAesKey: country-risk/int/edc/DATA_ENCRYPTION_KEYS_ALIAS
-      transferProxyTokenSignerPrivateKey: country-risk/int/edc/DAPS_PRIVATE_KEY
-      transferProxyTokenSignerPublicKey: country-risk/int/edc/DAPS_PUBLIC_KEY
-      dapsPrivateKey: country-risk/int/edc/DAPS_PRIVATE_KEY
-      dapsPublicKey: country-risk/int/edc/DAPS_PUBLIC_KEY
 
   backendService:
-    httpProxyTokenReceiverUrl: "http://edc-country-risk-backend.int.demo.catena-x.net"
+    httpProxyTokenReceiverUrl: "https://vas-country-risk-backend.int.demo.catena-x.net/api/edc/edrEndpoint"
