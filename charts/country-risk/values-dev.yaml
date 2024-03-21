@@ -58,9 +58,9 @@ country-risk-backend:
   environment: dev
 
   image:
-    registry: "ghcr.io"
+    registry: "tractusx"
     # -- Name of the docker image
-    name: "catenax-ng/tx-vas-country-risk-backend"
+    name: "vas-country"
     pullPolicy: Always
     # -- Overrides the image tag whose default is the chart appVersion.
     tag: "latest"
