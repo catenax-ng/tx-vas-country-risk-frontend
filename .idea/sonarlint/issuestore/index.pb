@@ -17,10 +17,6 @@ S
 #charts/edc/chart-sharing/Chart.yaml,e\a\ea1894607fe66ceb2080d4973cfc1f0aeab7d8ce
 T
 $charts/edc/chart-sharing/values.yaml,1\c\1cab995cd3c16a0a8f5610351f0b8630e5f3751a
-Z
-*charts/edc/country-risk-provider-spec.yaml,f\8\f8d879a5a16b58b26a56f51fee87e074c25609af
-\
-,charts/edc/country-risk-provider-values.yaml,6\4\64d256ccc31cc99bfae56eaba800a9a33bca809f
 X
 (charts/edc-6-0/chart-provider/Chart.yaml,3\c\3c456f618a455c0df7fdc7f6a7771bcad52b6580
 W

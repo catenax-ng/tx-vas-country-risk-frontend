@@ -23,9 +23,9 @@ country-risk-frontend:
     - int
 
   image:
-    registry: "ghcr.io"
+    registry: "tractusx"
     # -- Name of the docker image
-    name: "catenax-ng/tx-vas-country-risk-frontend"
+    name: "vas-country-risk"
     pullPolicy: Always
     # -- Overrides the image tag whose default is the chart appVersion.
     tag: "latest"
@@ -58,9 +58,9 @@ country-risk-backend:
   environment: int
 
   image:
-    registry: "ghcr.io"
+    registry: "tractusx"
     # -- Name of the docker image
-    name: "catenax-ng/tx-vas-country-risk-backend"
+    name: "vas-country-risk-backend"
     pullPolicy: Always
     # -- Overrides the image tag whose default is the chart appVersion.
     tag: "latest"
