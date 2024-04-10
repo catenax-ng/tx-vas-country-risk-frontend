@@ -31,3 +31,15 @@ X
 (charts/edc-6-0/chart-sharing/values.yaml,4\b\4bcb367cce5809b03e0ab605d64a374b83f60d36
 X
 (charts/edc-6-0/chart-sharing/.helmignore,a\c\acd77552cacd756edc9ed0f11b502f086c0e75a9
+X
+(charts/edc-7-0/chart-provider/Chart.yaml,c\b\cb5e539fe53e603ac1ea265cb2d76bc0ed930792
+Y
+)charts/edc-7-0/chart-provider/values.yaml,3\3\33f01f51e5d2a12864cdca289cb18d5c0471c29f
+W
+'charts/edc-7-0/chart-sharing/Chart.yaml,0\e\0eaaa0e2ec511298d1238b850fc1b263ce533de0
+X
+(charts/edc-7-0/chart-sharing/values.yaml,c\4\c4e562508d4fcc7b36d373e106f6ca120c30c72e
+Y
+)charts/edc-7-0/chart-provider/.helmignore,9\c\9c687d709281c817568a8326882c8b0d827580a8
+X
+(charts/edc-7-0/chart-sharing/.helmignore,c\2\c2998deffad4f16776aed46cb9203f0a758d0f48
