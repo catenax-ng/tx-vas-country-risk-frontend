@@ -35,3 +35,11 @@ txdc:
       verifier:
         # alias under which the public key is stored in the vault, that belongs to the private key ("privatekey_alias", JWK or PEM format)
         publickey_alias: country-risk/int/edc-provider/DATA_ENCRYPTION_KEYS_ALIAS
+
+  serviceAccount:
+    create: false
+
+  install:
+    daps: false
+    postgresql: true
+    vault: false
