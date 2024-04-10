@@ -8,6 +8,11 @@ postgres:
     enabled: true
 
 txdc:
+  install:
+    daps: false
+    postgresql: true
+    vault: false
+
   postgresql:
     enabled: true
     jdbcUrl: "jdbc:postgresql://edc-country-risk-postgres:5432/edc"
@@ -38,8 +43,3 @@ txdc:
 
   serviceAccount:
     create: false
-
-  install:
-    daps: false
-    postgresql: true
-    vault: false
