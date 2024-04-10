@@ -26,3 +26,8 @@ txdc:
         client:
           id: "sa122"
           secret_alias: "country-risk/int/edc-consumer/CLIENT_SECRET"
+
+  dataplane:
+    signer:
+      # alias under which the private key is stored in the vault (JWK or PEM format)
+      privatekey_alias: country-risk/int/edc-provider/DATA_ENCRYPTION_KEYS_ALIAS
