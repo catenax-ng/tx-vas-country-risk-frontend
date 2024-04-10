@@ -20,7 +20,7 @@ txdc:
     id: "did:web:changeme"
     sts:
       dim:
-        url:
+        url: https://centralidp.int.demo.catena-x.net/auth/realms/CX-Central/protocol/openid-connect/token
       oauth:
         token_url: https://centralidp.int.demo.catena-x.net/auth/realms/CX-Central/protocol/openid-connect/token
         client:
