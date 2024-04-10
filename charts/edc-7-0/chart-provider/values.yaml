@@ -33,6 +33,11 @@ txdc:
           secret_alias: "country-risk/int/edc-consumer/CLIENT_SECRET"
 
   controlplane:
+    endpoints:
+      # -- data management api, used by internal users, can be added to an ingress and must not be internet facing
+      management:
+        # -- authentication key, must be attached to each 'X-Api-Key' request header
+        authKey: <path:value-added-service/data/country-risk/int/edc#controlplane-auth>
     ## Ingress declaration to expose the network service.
     ingresses:
       ## Public / Internet facing Ingress
