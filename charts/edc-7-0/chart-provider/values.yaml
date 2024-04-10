@@ -14,3 +14,15 @@ txdc:
     fullnameOverride: "edc-country-risk-postgres"
     username: user
     password: password
+
+  iatp:
+    # Decentralized IDentifier
+    id: "did:web:changeme"
+    sts:
+      dim:
+        url:
+      oauth:
+        token_url: https://centralidp.int.demo.catena-x.net/auth/realms/CX-Central/protocol/openid-connect/token
+        client:
+          id: "sa122"
+          secret_alias: "country-risk/int/edc-consumer/CLIENT_SECRET"
