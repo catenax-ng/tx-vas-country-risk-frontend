@@ -32,7 +32,43 @@ txdc:
           id: "sa122"
           secret_alias: "country-risk/int/edc-consumer/CLIENT_SECRET"
 
+  controlplane:
+    ## Ingress declaration to expose the network service.
+    ingresses:
+      ## Public / Internet facing Ingress
+      - enabled: true
+        # -- The hostname to be used to precisely map incoming traffic onto the underlying network service
+        hostname: "country-risk-provider-member-edc.int.demo.catena-x.net"
+        className: "nginx"
+        # -- EDC endpoints exposed by this ingress resource
+        endpoints:
+          - management
+          - control
+          - protocol
+        # -- TLS [tls class](https://kubernetes.io/docs/concepts/services-networking/ingress/#tls) applied to the ingress resource
+        tls:
+          # -- Enables TLS on the ingress resource
+          enabled: true
+          # -- If present overwrites the default secret name
+          secretName: tls-secret
   dataplane:
+    ## Ingress declaration to expose the network service.
+    ingresses:
+      ## Public / Internet facing Ingress
+      - enabled: true
+        # -- The hostname to be used to precisely map incoming traffic onto the underlying network service
+        hostname: "country-risk-provider-member-edc.int.demo.catena-x.net"
+        # -- EDC endpoints exposed by this ingress resource
+        endpoints:
+          - public
+        # -- Defines the [ingress class](https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-class)  to use
+        className: "nginx"
+        # -- TLS [tls class](https://kubernetes.io/docs/concepts/services-networking/ingress/#tls) applied to the ingress resource
+        tls:
+          # -- Enables TLS on the ingress resource
+          enabled: true
+          # -- If present overwrites the default secret name
+          secretName: tls-secret
     token:
       signer:
         # alias under which the private key is stored in the vault (JWK or PEM format)
