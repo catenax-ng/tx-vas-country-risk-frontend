@@ -28,7 +28,7 @@ txdc:
           secretAlias: "client-secret"
     ingresses:
       ## Public / Internet facing Ingress
-      - enabled: true
+      - enabled: false
         # -- The hostname to be used to precisely map incoming traffic onto the underlying network service
         hostname: "country-risk.int.demo.catena-x.net"
     service:
