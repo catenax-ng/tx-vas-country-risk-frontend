@@ -27,10 +27,15 @@ txdc:
         client:
           secretAlias: "client-secret"
     ingresses:
-      ## Public / Internet facing Ingress
-      - enabled: false
-        # -- The hostname to be used to precisely map incoming traffic onto the underlying network service
+      - enabled: true
         hostname: "country-risk.int.demo.catena-x.net"
+        annotations: {}
+        endpoints:
+          - protocol
+        className: "nginx"
+        tls:
+          enabled: true
+          secretName: "example-tls"
     service:
       type: NodePort
     endpoints:
