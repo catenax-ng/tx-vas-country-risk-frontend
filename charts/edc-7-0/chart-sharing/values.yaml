@@ -31,6 +31,8 @@ txdc:
         hostname: "country-risk.int.demo.catena-x.net"
         annotations: {}
         endpoints:
+          - management
+          - control
           - protocol
         className: "nginx"
         tls:
