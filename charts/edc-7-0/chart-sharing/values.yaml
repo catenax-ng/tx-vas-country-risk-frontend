@@ -61,23 +61,6 @@ txdc:
         privatekey_alias: "key-1"
       verifier:
         publickey_alias: "key-1"
-    ## Ingress declaration to expose the network service.
-    ingresses:
-      ## Public / Internet facing Ingress
-      - enabled: true
-        # -- The hostname to be used to precisely map incoming traffic onto the underlying network service
-        hostname: "country-risk-edc-provider-test.int.demo.catena-x.net"
-        # -- EDC endpoints exposed by this ingress resource
-        endpoints:
-          - public
-        # -- Defines the [ingress class](https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-class)  to use
-        className: "nginx"
-        # -- TLS [tls class](https://kubernetes.io/docs/concepts/services-networking/ingress/#tls) applied to the ingress resource
-        tls:
-          # -- Enables TLS on the ingress resource
-          enabled: true
-          # -- If present overwrites the default secret name
-          secretName: tls-secret
   postgresql:
     enabled: true
     jdbcUrl: "jdbc:postgresql://edc-provider-test-country-risk-postgres:5432/edc"
