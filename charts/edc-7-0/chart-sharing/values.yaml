@@ -26,23 +26,11 @@ txdc:
       oauth:
         client:
           secretAlias: "client-secret"
-    ingresses:
-      - enabled: false
-        hostname: "country-risk.int.demo.catena-x.net"
-        annotations: {}
-        endpoints:
-          - management
-          - control
-          - protocol
-        className: "nginx"
-        tls:
-          enabled: true
-          secretName: "example-tls"
     service:
       type: NodePort
     endpoints:
       management:
-        authKey: <path:value-added-service/data/country-risk/int/edc#controlplane-auth>
+        authKey: password
     image:
       pullPolicy: Always
       tag: "0.7.0-rc1"
@@ -54,6 +42,9 @@ txdc:
       server:
         url: "https://bdrs.test.org"
   dataplane:
+    endpoints:
+      proxy:
+        authKey: password
     image:
       pullPolicy: Always
       tag: "0.7.0-rc1"
@@ -75,7 +66,7 @@ txdc:
       ## Public / Internet facing Ingress
       - enabled: true
         # -- The hostname to be used to precisely map incoming traffic onto the underlying network service
-        hostname: "country-risk.int.demo.catena-x.net"
+        hostname: "country-risk-edc-provider-test.int.demo.catena-x.net"
         # -- EDC endpoints exposed by this ingress resource
         endpoints:
           - public
@@ -115,9 +106,9 @@ txdc:
         - |-
           {
           sleep 5
-  
+          
           /bin/vault kv put secret/client-secret content=kEmH7QRPWhKfy8f+x0pFMw==
-  
+          
           /bin/vault kv put secret/aes-keys content=YWVzX2VuY2tleV90ZXN0Cg==
           }
   backendService:
