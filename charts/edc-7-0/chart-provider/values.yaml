@@ -33,6 +33,12 @@ txdc:
           secret_alias: "country-risk/int/edc-consumer/CLIENT_SECRET"
 
   controlplane:
+    livenessProbe:
+      # -- Whether to enable kubernetes [liveness-probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
+      enabled: false
+    readinessProbe:
+      # -- Whether to enable kubernetes [readiness-probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
+      enabled: true
     endpoints:
       # -- data management api, used by internal users, can be added to an ingress and must not be internet facing
       management:
@@ -41,7 +47,7 @@ txdc:
     ## Ingress declaration to expose the network service.
     ingresses:
       ## Public / Internet facing Ingress
-      - enabled: false
+      - enabled: true
         # -- The hostname to be used to precisely map incoming traffic onto the underlying network service
         hostname: "country-risk-provider-member-edc.int.demo.catena-x.net"
         className: "nginx"
@@ -57,10 +63,16 @@ txdc:
           # -- If present overwrites the default secret name
           secretName: tls-secret
   dataplane:
+    livenessProbe:
+      # -- Whether to enable kubernetes [liveness-probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
+      enabled: false
+    readinessProbe:
+      # -- Whether to enable kubernetes [readiness-probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
+      enabled: true
     ## Ingress declaration to expose the network service.
     ingresses:
       ## Public / Internet facing Ingress
-      - enabled: false
+      - enabled: true
         # -- The hostname to be used to precisely map incoming traffic onto the underlying network service
         hostname: "country-risk-provider-member-edc.int.demo.catena-x.net"
         # -- EDC endpoints exposed by this ingress resource
