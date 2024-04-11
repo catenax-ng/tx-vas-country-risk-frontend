@@ -62,19 +62,23 @@ txdc:
       verifier:
         publickey_alias: "key-1"
   postgresql:
-    jdbcUrl: jdbc:postgresql://{{ .Release.Name }}-postgresql:5432/edc
-    auth:
-      username: user
-      password: password
+    enabled: true
+    jdbcUrl: "jdbc:postgresql://edc-provider-test-country-risk-postgres:5432/edc"
+    fullnameOverride: "edc-provider-test-country-risk-postgres"
+    username: user
+    password: password
   vault:
     hashicorp:
-      url: http://{{ .Release.Name }}-vault:8200
-      token: root
+      enabled: true
+      healthCheck:
+        enabled: true
+        standbyOk: true
+      url: "https://vault.demo.catena-x.net"
+      token: <path:value-added-service/data/country-risk/int/edc#vault-token-cr>
+      paths:
+        secret: /v1/value-added-service
     secretNames:
-      transferProxyTokenEncryptionAesKey: aes-keys
-      # this must be set through CLI args: --set vault.secrets=$YOUR_VAULT_SECRETS where YOUR_VAULT_SECRETS should
-      # be a string in the format "key1:secret1;key2:secret2;..."
-      secrets:
+      transferProxyTokenEncryptionAesKey: country-risk/int/edc-provider/DATA_ENCRYPTION_KEYS_ALIAS
 
     # the post-start object is still needed for the upgradeability test
     # todo: remove this after 0.7.0 is released
