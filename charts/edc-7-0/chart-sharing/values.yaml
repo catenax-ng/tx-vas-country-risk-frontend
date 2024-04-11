@@ -45,7 +45,7 @@ txdc:
       ## Public / Internet facing Ingress
       - enabled: true
         # -- The hostname to be used to precisely map incoming traffic onto the underlying network service
-        hostname: "country-risk-edc-provider-test.int.demo.catena-x.net"
+        hostname: "country-risk-edc.int.demo.catena-x.net"
         # -- EDC endpoints exposed by this ingress resource
         endpoints:
           - public
@@ -82,7 +82,7 @@ txdc:
       ## Public / Internet facing Ingress
       - enabled: true
         # -- The hostname to be used to precisely map incoming traffic onto the underlying network service
-        hostname: "country-risk-edc-provider-test.int.demo.catena-x.net"
+        hostname: "country-risk-edc.int.demo.catena-x.net"
         # -- EDC endpoints exposed by this ingress resource
         endpoints:
           - public
