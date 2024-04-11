@@ -77,7 +77,7 @@ txdc:
     ## Ingress declaration to expose the network service.
     ingresses:
       ## Public / Internet facing Ingress
-      - enabled: true
+      - enabled: false
         # -- The hostname to be used to precisely map incoming traffic onto the underlying network service
         hostname: "country-risk.int.demo.catena-x.net"
         # -- EDC endpoints exposed by this ingress resource
