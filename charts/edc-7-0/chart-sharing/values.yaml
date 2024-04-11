@@ -58,9 +58,6 @@ txdc:
           # -- If present overwrites the default secret name
           secretName: tls-secret
   dataplane:
-    endpoints:
-      proxy:
-        authKey: <path:value-added-service/data/country-risk/int/edc#controlplane-auth>
     image:
       pullPolicy: Always
       tag: "0.7.0-rc1"
