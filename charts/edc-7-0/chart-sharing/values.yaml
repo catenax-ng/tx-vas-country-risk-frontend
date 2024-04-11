@@ -27,7 +27,7 @@ txdc:
         client:
           secretAlias: "client-secret"
     ingresses:
-      - enabled: true
+      - enabled: false
         hostname: "country-risk.int.demo.catena-x.net"
         annotations: {}
         endpoints:
