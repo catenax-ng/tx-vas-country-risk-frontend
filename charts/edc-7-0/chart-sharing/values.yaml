@@ -1,4 +1,6 @@
 txdc:
+  install:
+    vault: false
   fullnameOverride: tx-prod
   ################################
   # EDC ControlPlane + DataPlane #
