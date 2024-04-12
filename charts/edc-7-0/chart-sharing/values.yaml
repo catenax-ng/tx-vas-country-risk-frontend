@@ -64,13 +64,13 @@ txdc:
       verifier:
         publickey_alias: "key-1"
   postgresql:
-    jdbcUrl: jdbc:postgresql://country-risk-provider-postgresql:5432/edc
+    jdbcUrl: jdbc:postgresql://country-risk-edc-provider-postgresql:5432/edc
     auth:
       username: user
       password: password
   vault:
     hashicorp:
-      url: http://country-risk-provider-vault:8200
+      url: http://country-risk-edc-provider-vault:8200
       token: root
     secretNames:
       transferProxyTokenEncryptionAesKey: aes-keys
