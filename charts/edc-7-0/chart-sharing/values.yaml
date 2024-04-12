@@ -20,4 +20,5 @@ txdc:
       oauth:
         client:
           secretAlias: "client-secret"
-
+    service:
+      type: NodePort
