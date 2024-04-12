@@ -349,17 +349,10 @@
         path: /metrics
 
     token:
-      refresh:
-        expiry_seconds: 300
-        expiry_tolerance_seconds: 10
-        # optional URL that can be provided where clients go to refresh tokens.
-        refresh_endpoint:
       signer:
-        # alias under which the private key is stored in the vault (JWK or PEM format)
-        privatekey_alias:
+        privatekey_alias: "key-1"
       verifier:
-        # alias under which the public key is stored in the vault, that belongs to the private key ("privatekey_alias", JWK or PEM format)
-        publickey_alias:
+        publickey_alias: "key-1"
 
     aws:
       endpointOverride: ""
