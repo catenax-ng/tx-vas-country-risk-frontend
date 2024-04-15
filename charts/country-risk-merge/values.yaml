@@ -349,11 +349,11 @@ countryRiskBackend:
       password: ""
 
 
-  pgadmin4:
-    # -- Should pgadmin4 be enabled or not
-    enabled: false
-    env:
-      # -- Email used on the Env environment
-      email: ""
-      password: ""
+pgadmin4:
+  # -- Should pgadmin4 be enabled or not
+  enabled: false
+  env:
+    # -- Email used on the Env environment
+    email: ""
+    password: ""
 
