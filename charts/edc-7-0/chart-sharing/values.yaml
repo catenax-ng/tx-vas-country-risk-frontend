@@ -93,7 +93,7 @@
        verifier:
          publickey_alias: "key-1"
    postgresql:
-     jdbcUrl: jdbc:postgresql://provider-postgresql:5432/edc
+     jdbcUrl: jdbc:postgresql://country-risk-edc-provider-postgresql:5432/edc
      auth:
        username: user
        password: password
