@@ -1,0 +1,9 @@
+dependencies:
+- name: postgresql
+  repository: https://charts.bitnami.com/bitnami
+  version: 11.9.13
+- name: pgadmin4
+  repository: https://helm.runix.net
+  version: 1.24.1
+digest: sha256:ab96a858be9e58761ad7a7c3747830b9dc254191c7813a75cdb0fb4e6ea21b7e
+generated: "2024-04-15T22:46:18.2860489+01:00"

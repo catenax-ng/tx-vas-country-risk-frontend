@@ -1,0 +1,124 @@
+###############################################################
+# Copyright (c) 2022,2023 Contributors to the Eclipse Foundation
+#
+# See the NOTICE file(s) distributed with this work for additional
+# information regarding copyright ownership.
+#
+# This program and the accompanying materials are made available under the
+# terms of the Apache License, Version 2.0 which is available at
+# https://www.apache.org/licenses/LICENSE-2.0.
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations
+# under the License.
+#
+# SPDX-License-Identifier: Apache-2.0
+###############################################################
+
+countryRiskFrontend:
+
+  springProfiles:
+    - int
+
+  image:
+    registry: "tractusx"
+    # -- Name of the docker image
+    name: "vas-country-risk"
+    pullPolicy: Always
+    # -- Overrides the image tag whose default is the chart appVersion.
+    tag: "v1.4.0-alpha4"
+
+  appName: country-risk-frontend
+  environment: int
+
+  ingress:
+    host: catenax-vas-int.demo.catena-x.net
+    enabled: true
+
+  certificate:
+    host: "country-risk-dashboard.int.demo.catena-x.net"
+
+  configmap:
+    # Specifies whether a configmap should be created or not
+    data:
+      REACT_APP_AUTH_URL: 'https://centralidp.int.demo.catena-x.net/auth'
+      REACT_APP_COUNTRY_RISK_API: 'https://vas-country-risk-backend.int.demo.catena-x.net'
+      REACT_APP_PORTAL_FRONTEND: 'https://portal.int.demo.catena-x.net'
+      REACT_APP_PORTAL_BACKEND: 'https://portal-backend.int.demo.catena-x.net'
+      REACT_APP_COUNTRY_RISK_CLIENT: app96
+
+countryRiskBackend:
+
+  springProfiles:
+    - int
+
+  appName: vas-country-risk-backend
+  environment: int
+
+  image:
+    registry: "tractusx"
+    # -- Name of the docker image
+    name: "vas-country-risk-backend"
+    pullPolicy: Always
+    # -- Overrides the image tag whose default is the chart appVersion.
+    tag: "v1.3.2-alpha"
+
+  ingress:
+    host: catenax-vas-int.demo.catena-x.net
+    enabled: true
+
+  certificate:
+    host: "vas-country-risk-backend.int.demo.catena-x.net"
+
+  configmap:
+    # Specifies whether a configmap should be created
+    data:
+      spring_profiles_active: int
+      application_host: http://localhost:8080/api/dashboard
+      security_enabled: 'true'
+      # -- Endpoints for BPDM output gate
+      application_bpdm_addressUrl: https://business-partners.int.demo.catena-x.net/pool/api/catena/addresses/search?
+      application_bpdm_siteUrl: https://business-partners.int.demo.catena-x.net/pool/api/catena/sites/search?
+      application_bpdm_legalUrl: https://business-partners.int.demo.catena-x.net/pool/api/catena/legal-entities/search?
+      application_bpdm_genericUrl: https://business-partners.int.demo.catena-x.net/companies/test-company/api/catena/output/business-partners/search?
+      application_bpdm_consumerManagementUrl: https://country-risk-consumer-member-edc.int.demo.catena-x.net/management
+      application_bpdm_gateProviderProtocolUrl: https://gate-edc.int.demo.catena-x.net/api/v1/dsp
+      application_bpdm_gateProviderId: BPNL00000007RF54
+      application_bpdm_policyBpn: BPNL00000007RWSM
+      application_edc_enabled: 'false'
+      vas_auth_url: https://centralidp.int.demo.catena-x.net
+      LOGGING_LEVEL_org_eclipse_tractusx_valueaddedservice_service_logic_EDCLogicService: DEBUG
+
+  applicationSecret:
+    clientSecret: <path:value-added-service/data/country-risk/int/keycloak#country-risk-gate-client-secret>
+    clientId: <path:value-added-service/data/country-risk/int/keycloak#country-risk-gate-client-id>
+    gateClientSecret: <path:value-added-service/data/country-risk/int/keycloak#country-risk-gate-client-secret>
+    gateClientId: <path:value-added-service/data/country-risk/int/keycloak#country-risk-gate-client-id>
+    poolClientSecret: <path:value-added-service/data/country-risk/int/keycloak#country-risk-pool-client-secret>
+    poolClientId: <path:value-added-service/data/country-risk/int/keycloak#country-risk-pool-client-id>
+    edcApiKey: <path:value-added-service/data/country-risk/int/edc#controlplane-auth>
+
+
+postgres:
+  auth:
+    postgresPassword: <path:value-added-service/data/country-risk/int/postgresql#postgres-password>
+    password: <path:value-added-service/data/country-risk/int/postgresql#password>
+
+pgadmin4:
+  enabled: false
+  secret:
+    path: value-added-service/data/country-risk/int/pgadmin4
+  ingress:
+    hosts:
+      - host: vas-pgadmin4.int.demo.catena-x.net
+        paths:
+          - path: /
+            pathType: Prefix
+    tls:
+      - hosts:
+          - vas-pgadmin4.int.demo.catena-x.net
+        secretName: vas-pgadmin4.int.demo.catena-x.net-tls
+
+
