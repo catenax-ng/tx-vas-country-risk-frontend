@@ -99,10 +99,10 @@ countryRiskBackend:
     poolClientId: <path:value-added-service/data/country-risk/dev/keycloak#country-risk-pool-client-id>
     edcApiKey: <path:value-added-service/data/country-risk/dev/edc#controlplane-auth>
 
-postgres:
-  auth:
-    postgresPassword: <path:value-added-service/data/country-risk/dev/postgresql#postgres-password>
-    password: <path:value-added-service/data/country-risk/dev/postgresql#password>
+  postgres:
+    auth:
+      postgresPassword: <path:value-added-service/data/country-risk/dev/postgresql#postgres-password>
+      password: <path:value-added-service/data/country-risk/dev/postgresql#password>
 
 pgadmin4:
   secret:

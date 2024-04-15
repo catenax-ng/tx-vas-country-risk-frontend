@@ -101,10 +101,10 @@ countryRiskBackend:
     edcApiKey: <path:value-added-service/data/country-risk/int/edc#controlplane-auth>
 
 
-postgres:
-  auth:
-    postgresPassword: <path:value-added-service/data/country-risk/int/postgresql#postgres-password>
-    password: <path:value-added-service/data/country-risk/int/postgresql#password>
+  postgres:
+    auth:
+      postgresPassword: <path:value-added-service/data/country-risk/int/postgresql#postgres-password>
+      password: <path:value-added-service/data/country-risk/int/postgresql#password>
 
 pgadmin4:
   enabled: false
