@@ -43,7 +43,7 @@
        dim:
          url: "https://somewhere.dim.org"
        oauth:
-         token_url: "https://centralidp.int.demo.catena-x.net/auth/realms/CX-Central/protocol/openid-connect/token"
+         token_url: "https://centralidp-v2.int.demo.catena-x.net/auth/realms/CX-Central/protocol/openid-connect/token"
          client:
            id: "sa122"
            secretAlias: "country-risk/int/edc-consumer/CLIENT_SECRET"
