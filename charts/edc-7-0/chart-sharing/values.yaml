@@ -46,7 +46,7 @@
          token_url: "https://centralidp-v2.int.demo.catena-x.net/auth/realms/CX-Central/protocol/openid-connect/token"
          client:
            id: "sa122"
-           secretAlias: "country-risk/int/edc-consumer/CLIENT_SECRET"
+           secret_alias: "country-risk/int/edc-consumer/CLIENT_SECRET"
    controlplane:
      ingresses:
        ## Public / Internet facing Ingress
