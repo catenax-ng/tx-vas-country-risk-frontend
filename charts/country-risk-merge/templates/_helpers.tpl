@@ -22,19 +22,19 @@
 
 
 {{/*
-Create a default fully qualified app name.
+Create a default fully qualified app name for frontend.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "vas.fullname" -}}
+{{- define "vas.frontend.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
 {{- $name := default .Chart.Name .Values.nameOverride }}
 {{- if contains $name .Release.Name }}
-{{- .Release.Name | trunc 63 | trimSuffix "-" }}
+{{- printf "%s-frontend" (.Release.Name | trunc 63 | trimSuffix "-") }}
 {{- else }}
-{{- printf "%s-%s" .Release.Name $name | trunc 63 | trimSuffix "-" }}
+{{- printf "%s-%s-frontend" .Release.Name $name | trunc 63 | trimSuffix "-" }}
 {{- end }}
 {{- end }}
 {{- end }}
@@ -49,20 +49,63 @@ Create chart name and version as used by the chart label.
 {{/*
 Common labels
 */}}
-{{- define "vas.labels" -}}
+{{- define "vas.frontend.labels" -}}
 helm.sh/chart: {{ include "vas.chart" . }}
-{{ include "vas.selectorLabels" . }}
+{{ include "vas.frontend.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
+app.kubernetes.io/name: {{ printf "%s-frontend" (include "vas.frontend.fullname" .) | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Selector labels
 */}}
-{{- define "vas.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "vas.name" . }}
+{{- define "vas.frontend.selectorLabels" -}}
+app.kubernetes.io/name: {{ printf "%s-frontend" (include "vas.name" .) | trunc 63 | trimSuffix "-" }}
+app.kubernetes.io/instance: {{ .Release.Name }}
+{{- end }}
+
+
+
+{{/*
+Create a default fully qualified app name for backend.
+We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
+If release name contains chart name it will be used as a full name.
+*/}}
+{{- define "vas.backend.fullname" -}}
+{{- if .Values.fullnameOverride }}
+{{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
+{{- else }}
+{{- $name := default .Chart.Name .Values.nameOverride }}
+{{- if contains $name .Release.Name }}
+{{- printf "%s-backend" (.Release.Name | trunc 63 | trimSuffix "-") }}
+{{- else }}
+{{- printf "%s-%s-backend" .Release.Name $name | trunc 63 | trimSuffix "-" }}
+{{- end }}
+{{- end }}
+{{- end }}
+
+
+{{/*
+Common labels
+*/}}
+{{- define "vas.backend.labels" -}}
+helm.sh/chart: {{ include "vas.chart" . }}
+{{ include "vas.backend.selectorLabels" . }}
+{{- if .Chart.AppVersion }}
+app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
+{{- end }}
+app.kubernetes.io/managed-by: {{ .Release.Service }}
+app.kubernetes.io/name: {{ printf "%s-frontend" (include "vas.backend.fullname" .) | trunc 63 | trimSuffix "-" }}
+{{- end }}
+
+{{/*
+Selector labels
+*/}}
+{{- define "vas.backend.selectorLabels" -}}
+app.kubernetes.io/name: {{ printf "%s-backend" (include "vas.name" .) | trunc 63 | trimSuffix "-" }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
@@ -70,7 +113,7 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 Create name of application secret
 */}}
 {{- define "vas.applicationSecret.name" -}}
-{{- printf "%s-application" (include "vas.fullname" .) }}
+{{- printf "%s-application" (include "vas.backend.fullname" .) }}
 {{- end }}
 
 

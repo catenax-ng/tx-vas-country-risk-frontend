@@ -21,13 +21,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "vas.fullname" . }}-backend-service
+  name: {{ include "vas.backend.fullname" . }}
   labels:
-    {{- include "vas.labels" . | nindent 4 }}-backend
+    {{- include "vas.backend.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.countryRiskBackend.service.type }}
   ports:
     - port: {{ .Values.countryRiskBackend.service.port }}
 
   selector:
-    {{- include "vas.selectorLabels" . | nindent 4 }}-backend
+    {{- include "vas.backend.selectorLabels" . | nindent 4 }}
