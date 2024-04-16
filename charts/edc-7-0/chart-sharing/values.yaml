@@ -55,31 +55,10 @@
          hostname: "country-risk-edc.int.demo.catena-x.net"
          # -- EDC endpoints exposed by this ingress resource
          endpoints:
-           - public
-         spec:
-           rules:
-               paths:
-                 - backend:
-                     service:
-                       name: country-risk-edc-provider-tx-prod-controlplane
-                       port:
-                         number: 8083
-                   path: /control
-                   pathType: Prefix
-                 - backend:
-                     service:
-                       name: country-risk-edc-provider-tx-prod-controlplane
-                       port:
-                         number: 8081
-                   path: /management
-                   pathType: Prefix
-                 - backend:
-                     service:
-                       name: country-risk-edc-provider-tx-prod-controlplane
-                       port:
-                         number: 8084
-                   path: /api/v1/dsp
-                   pathType: Prefix
+           - management
+           - control
+           - protocol
+
          # -- Defines the [ingress class](https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-class)  to use
          className: "nginx"
          # -- TLS [tls class](https://kubernetes.io/docs/concepts/services-networking/ingress/#tls) applied to the ingress resource
