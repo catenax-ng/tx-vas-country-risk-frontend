@@ -88,7 +88,7 @@ countryRiskBackend:
       application_bpdm_gateProviderId: BPNL00000007RF54
       application_bpdm_policyBpn: BPNL00000007RWSM
       application_edc_enabled: 'false'
-      vas_auth_url: https://centralidp.int.demo.catena-x.net
+      vas_auth_url: https://centralidp-v2.int.demo.catena-x.net
       LOGGING_LEVEL_org_eclipse_tractusx_valueaddedservice_service_logic_EDCLogicService: DEBUG
 
   applicationSecret:
