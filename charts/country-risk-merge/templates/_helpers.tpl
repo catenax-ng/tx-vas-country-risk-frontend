@@ -21,29 +21,73 @@
 */}}
 
 
+{/*
+Expand the name of the chart.
+*/}}
+{{- define "vas.name" -}}
+{{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
+{{- end }}
+
 {{/*
-Create a default fully qualified app name for frontend.
+Create a default fully qualified app name with '-frontend' suffix.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
-If release name contains chart name it will be used as a full name.
+If release name contains chart name, it will be used as a full name, with '-frontend' appended.
 */}}
 {{- define "vas.frontend.fullname" -}}
 {{- if .Values.fullnameOverride }}
-{{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
+{{- printf "%s-frontend" .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
 {{- $name := default .Chart.Name .Values.nameOverride }}
+{{- $fullName := "" }}
 {{- if contains $name .Release.Name }}
-{{- printf "%s-frontend" (.Release.Name | trunc 63 | trimSuffix "-") }}
+    {{- $fullName = printf "%s-frontend" .Release.Name }}
 {{- else }}
-{{- printf "%s-%s-frontend" .Release.Name $name | trunc 63 | trimSuffix "-" }}
+    {{- $fullName = printf "%s-%s-frontend" .Release.Name $name }}
+{{- end }}
+{{- $fullName | trunc 63 | trimSuffix "-" }}
 {{- end }}
 {{- end }}
+
+
+{{/*
+Create a default fully qualified app name with '-backend' suffix.
+We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
+If release name contains chart name, it will be used as a full name, with '-frontend' appended.
+*/}}
+{{- define "vas.backend.fullname" -}}
+{{- if .Values.fullnameOverride }}
+{{- printf "%s-backend" .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
+{{- else }}
+{{- $name := default .Chart.Name .Values.nameOverride }}
+{{- $fullName := "" }}
+{{- if contains $name .Release.Name }}
+    {{- $fullName = printf "%s-backend" .Release.Name }}
+{{- else }}
+    {{- $fullName = printf "%s-%s-backend" .Release.Name $name }}
 {{- end }}
+{{- $fullName | trunc 63 | trimSuffix "-" }}
+{{- end }}
+{{- end }}
+
+
 
 {{/*
 Create chart name and version as used by the chart label.
 */}}
 {{- define "vas.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
+{{- end }}
+
+{{/*
+Common labels
+*/}}
+{{- define "vas.backend.labels" -}}
+helm.sh/chart: {{ include "vas.chart" . }}
+{{ include "vas.backend.selectorLabels" . }}
+{{- if .Chart.AppVersion }}
+app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
+{{- end }}
+app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end }}
 
 {{/*
@@ -56,56 +100,21 @@ helm.sh/chart: {{ include "vas.chart" . }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
-app.kubernetes.io/name: {{ printf "%s-frontend" (include "vas.frontend.fullname" .) | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Selector labels
 */}}
 {{- define "vas.frontend.selectorLabels" -}}
-app.kubernetes.io/name: {{ printf "%s-frontend" (include "vas.name" .) | trunc 63 | trimSuffix "-" }}
+app.kubernetes.io/name: {{ include "vas.frontend.fullname" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
-{{- end }}
-
-
-
-{{/*
-Create a default fully qualified app name for backend.
-We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
-If release name contains chart name it will be used as a full name.
-*/}}
-{{- define "vas.backend.fullname" -}}
-{{- if .Values.fullnameOverride }}
-{{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
-{{- else }}
-{{- $name := default .Chart.Name .Values.nameOverride }}
-{{- if contains $name .Release.Name }}
-{{- printf "%s-backend" (.Release.Name | trunc 63 | trimSuffix "-") }}
-{{- else }}
-{{- printf "%s-%s-backend" .Release.Name $name | trunc 63 | trimSuffix "-" }}
-{{- end }}
-{{- end }}
-{{- end }}
-
-
-{{/*
-Common labels
-*/}}
-{{- define "vas.backend.labels" -}}
-helm.sh/chart: {{ include "vas.chart" . }}
-{{ include "vas.backend.selectorLabels" . }}
-{{- if .Chart.AppVersion }}
-app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
-{{- end }}
-app.kubernetes.io/managed-by: {{ .Release.Service }}
-app.kubernetes.io/name: {{ printf "%s-frontend" (include "vas.backend.fullname" .) | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Selector labels
 */}}
 {{- define "vas.backend.selectorLabels" -}}
-app.kubernetes.io/name: {{ printf "%s-backend" (include "vas.name" .) | trunc 63 | trimSuffix "-" }}
+app.kubernetes.io/name: {{ include "vas.backend.fullname" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
@@ -114,6 +123,11 @@ Create name of application secret
 */}}
 {{- define "vas.applicationSecret.name" -}}
 {{- printf "%s-application" (include "vas.backend.fullname" .) }}
+{{- end }}
+
+
+{{- define "vas.postgres.name" -}}
+{{- printf "%s-postgres" .Release.Name | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 
@@ -126,19 +140,6 @@ Usage: include "includeWithElasticContext" (list root "your_include_function_her
 {{- $ := index . 0 }}
 {{- $function := index . 1 }}
 {{- include $function (dict "Values" $.Values.elastic "Chart" (dict "Name" "elastic") "Release" $.Release) }}
-{{- end }}
-
-{{/*
-Expand the name of the chart.
-*/}}
-{{- define "vas.name" -}}
-{{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
-{{- end }}
-
-
-
-{{- define "vas.postgres.name" -}}
-{{- printf "%s-postgres" .Release.Name | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 
