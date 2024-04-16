@@ -23,11 +23,11 @@ kind: Service
 metadata:
   name: {{ include "vas.fullname" . }}-backend-service
   labels:
-    {{- include "vas.labels" . | nindent 4 }}
+    {{- include "vas.labels" . | nindent 4 }}-backend
 spec:
   type: {{ .Values.countryRiskBackend.service.type }}
   ports:
     - port: {{ .Values.countryRiskBackend.service.port }}
 
   selector:
-    {{- include "vas.selectorLabels" . | nindent 4 }}
+    {{- include "vas.selectorLabels" . | nindent 4 }}-backend

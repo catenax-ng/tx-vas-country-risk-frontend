@@ -23,14 +23,14 @@ kind: Deployment
 metadata:
   name: {{ include "vas.fullname" . }}-backend
   labels:
-    {{- include "vas.labels" . | nindent 4 }}
+    {{- include "vas.labels" . | nindent 4 }}-backend
 spec:
   {{- if not .Values.countryRiskBackend.autoscaling.enabled }}
   replicas: {{ .Values.countryRiskBackend.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "vas.selectorLabels" . | nindent 6 }}
+      {{- include "vas.selectorLabels" . | nindent 6 }}-backend
   template:
     metadata:
       {{- with .Values.countryRiskBackend.podAnnotations }}
@@ -38,7 +38,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "vas.selectorLabels" . | nindent 8 }}
+        {{- include "vas.selectorLabels" . | nindent 8 }}-backend
     spec:
       {{- with .Values.countryRiskBackend.imagePullSecrets }}
       imagePullSecrets:
