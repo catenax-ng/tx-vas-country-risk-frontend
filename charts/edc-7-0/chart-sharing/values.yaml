@@ -43,10 +43,10 @@
        dim:
          url: "https://somewhere.dim.org"
        oauth:
-         token_url: "https://changeme.org"
+         token_url: "https://centralidp.int.demo.catena-x.net/auth/realms/CX-Central/protocol/openid-connect/token"
          client:
-           id: "test-client-id"
-           secret_alias: "test-alias"
+           id: "sa122"
+           secretAlias: "country-risk/int/edc-consumer/CLIENT_SECRET"
    controlplane:
      ingresses:
        ## Public / Internet facing Ingress
