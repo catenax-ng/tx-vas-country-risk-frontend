@@ -71,7 +71,7 @@
        type: NodePort
      endpoints:
        management:
-         authKey: password
+         authKey: <path:value-added-service/data/country-risk/int/edc#controlplane-auth>
      image:
        pullPolicy: Always
        tag: "0.7.0"
@@ -85,7 +85,7 @@
    dataplane:
      endpoints:
        proxy:
-         authKey: password
+         authKey: <path:value-added-service/data/country-risk/int/edc#controlplane-auth>
      image:
        pullPolicy: Always
        tag: "0.7.0"
