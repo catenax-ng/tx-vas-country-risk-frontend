@@ -30,12 +30,13 @@
     postgresql: true
     vault: false
 
-   fullnameOverride: tx-prod
+   fullnameOverride: tx-prod-sharing
     ################################
     # EDC ControlPlane + DataPlane #
     ################################
    participant:
-     id: "test-participant"
+     #Sharing
+     id: "BPNLX01"
    iatp:
      # Decentralized IDentifier
      id: "did:web:changeme"
