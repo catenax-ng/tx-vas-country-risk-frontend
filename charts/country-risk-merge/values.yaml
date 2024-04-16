@@ -341,12 +341,12 @@ countryRiskBackend:
         # -- Encryption for the REST requests made to the Elastic cluster
         restEncryption: false
 
-  postgres:
-    enabled: true
-    auth:
-      database: vas
-      username: vas
-      password: ""
+postgres:
+  enabled: true
+  auth:
+    database: vas
+    username: vas
+    password: ""
 
 
 pgadmin4:

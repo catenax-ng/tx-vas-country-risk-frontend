@@ -61,7 +61,7 @@ spec:
             - name: VAS_DATASOURCE_HOST
               value: {{ include "vas.postgres.name" . }}
             - name: VAS_DATASOURCE_USER
-              value: {{ .Values.countryRiskBackend.postgres.auth.username }}
+              value: {{ .Values.postgres.auth.username }}
             - name: VAS_DATASOURCE_PASS
               valueFrom:
                 secretKeyRef:
