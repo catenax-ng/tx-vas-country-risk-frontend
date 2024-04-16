@@ -60,21 +60,21 @@
              paths:
                - backend:
                    service:
-                     name: country-risk-edc-provider-tx-controlplane
+                     name: country-risk-edc-provider-tx-prod-controlplane
                      port:
                        number: 8083
                  path: /control
                  pathType: Prefix
                - backend:
                    service:
-                     name: country-risk-edc-provider-tx-controlplane
+                     name: country-risk-edc-provider-tx-prod-controlplane
                      port:
                        number: 8081
                  path: /management
                  pathType: Prefix
                - backend:
                    service:
-                     name: country-risk-edc-provider-tx-controlplane
+                     name: country-risk-edc-provider-tx-prod-controlplane
                      port:
                        number: 8084
                  path: /api/v1/dsp
