@@ -63,7 +63,7 @@ countryRiskBackend:
     name: "vas-country-risk-backend"
     pullPolicy: Always
     # -- Overrides the image tag whose default is the chart appVersion.
-    tag: "1.3.2-alpha"
+    tag: "1.3.2"
 
   ingress:
     host: catenax-vas-int.demo.catena-x.net
