@@ -105,7 +105,12 @@ command: []
 args: []
 
 # Additional environment variables for Keycloak
-extraEnv: ""
+
+extraEnv: |
+  - name: KEYCLOAK_USER
+    value: "admin"
+  - name: KEYCLOAK_PASSWORD
+    value: "admin"
   # - name: KEYCLOAK_LOGLEVEL
   #   value: DEBUG
   # - name: WILDFLY_LOGLEVEL
@@ -189,13 +194,15 @@ startupProbe: |
   periodSeconds: 5
 
 # Pod resource requests and limits
-resources: {}
-  # requests:
-  #   cpu: "500m"
-  #   memory: "1024Mi"
-  # limits:
-  #   cpu: "500m"
-  #   memory: "1024Mi"
+resources:
+  # -- Maximum amount of resources that the deployment should be able to consume
+  limits:
+    cpu: 800m
+    memory: 2Gi
+  # -- Minimum amount of resources that the deployment should be guaranteed to receive
+  requests:
+    cpu: 300m
+    memory: 1Gi
 
 # Startup scripts to run before Keycloak starts up
 startupScripts:
