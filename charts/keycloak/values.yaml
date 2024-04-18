@@ -197,11 +197,11 @@ startupProbe: |
 resources:
   # -- Maximum amount of resources that the deployment should be able to consume
   limits:
-    cpu: 800m
+    cpu: 1Gi
     memory: 2Gi
   # -- Minimum amount of resources that the deployment should be guaranteed to receive
   requests:
-    cpu: 300m
+    cpu: 1Gi
     memory: 1Gi
 
 # Startup scripts to run before Keycloak starts up
