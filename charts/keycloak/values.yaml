@@ -283,7 +283,7 @@ service:
 
 ingress:
   # If `true`, an Ingress is created
-  enabled: true
+  enabled: false
   # The name of the Ingress Class associated with this ingress
   ingressClassName: ""
   # The Service port targeted by the Ingress
