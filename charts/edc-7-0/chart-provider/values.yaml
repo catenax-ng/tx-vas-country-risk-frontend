@@ -82,7 +82,7 @@
        readOnlyRootFilesystem: false
      bdrs:
        server:
-         url: "https://bdrs.test.org"
+         url: "https://311c-2a01-14-807e-3d50-4091-cc38-b825-9c08.ngrok-free.app"
    dataplane:
      endpoints:
        proxy:
