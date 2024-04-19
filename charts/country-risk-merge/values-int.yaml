@@ -90,6 +90,7 @@ countryRiskBackend:
       application_edc_enabled: 'false'
       vas_auth_url: http://bpdm-keycloak.int.demo.catena-x.net/auth
       LOGGING_LEVEL_org_eclipse_tractusx_valueaddedservice_service_logic_EDCLogicService: DEBUG
+      SERVER_SSL_ENABLED: false
 
   applicationSecret:
     clientSecret: <path:value-added-service/data/country-risk/int/keycloak#country-risk-gate-client-secret>
