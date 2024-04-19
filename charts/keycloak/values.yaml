@@ -285,7 +285,7 @@ ingress:
   # If `true`, an Ingress is created
   enabled: true
   # The name of the Ingress Class associated with this ingress
-  ingressClassName: ""
+  ingressClassName: "nginx"
   # The Service port targeted by the Ingress
   servicePort: http
   # Ingress annotations
