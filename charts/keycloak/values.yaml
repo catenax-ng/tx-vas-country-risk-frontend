@@ -111,6 +111,8 @@ extraEnv: |
     value: "admin"
   - name: KEYCLOAK_PASSWORD
     value: "admin"
+  - name: PROXY_ADDRESS_FORWARDING
+    value: "true"
   # - name: KEYCLOAK_LOGLEVEL
   #   value: DEBUG
   # - name: WILDFLY_LOGLEVEL
