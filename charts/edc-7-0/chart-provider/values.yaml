@@ -42,7 +42,7 @@
      id: "did:web:changeme"
      sts:
        dim:
-         url: "https://somewhere.dim.org"
+         url: "https://311c-2a01-14-807e-3d50-4091-cc38-b825-9c08.ngrok-free.app"
        oauth:
          #token_url: "https://centralidp-v2.int.demo.catena-x.net/auth/realms/CX-Central/protocol/openid-connect/token"
          token_url: "https://bpdm-keycloak.int.demo.catena-x.net/auth/realms/CX-Central/protocol/openid-connect/token"
