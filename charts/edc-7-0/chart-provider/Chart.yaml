@@ -9,3 +9,9 @@ dependencies:
     alias: txdc
     version: 0.7.0
     repository: https://eclipse-tractusx.github.io/charts/dev
+  - name: opensearch
+    version: 2.12.2
+    repository: https://opensearch-project.github.io/helm-charts/
+    alias: opensearch
+    condition: opensearch.enabled
+    ngrok config add-authtoken 2f6rkVsm9gFRCRXdBdY0uSCdbI9_7Zrh4HhvR1PyWke5H9pvP
