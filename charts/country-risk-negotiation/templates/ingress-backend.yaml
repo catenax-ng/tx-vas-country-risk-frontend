@@ -24,7 +24,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   # name of the ingress resource. -ingress suffix as suggestion for clear naming convention
-  name: {{ .Values.countryRiskBackend.appName }}-ingress
+  name: {{ .Values.countryRiskBackend.appName }}-negotiation-ingress
   {{- with .Values.countryRiskBackend.ingress.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
