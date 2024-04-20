@@ -139,7 +139,7 @@ spec:
       volumes:
         - name: config-backend-volume
           configMap:
-            name: config-backend
+            name: config-backend-negotiation
       {{- with .Values.countryRiskBackend.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
