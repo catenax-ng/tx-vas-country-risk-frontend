@@ -88,8 +88,7 @@ countryRiskBackend:
       application_bpdm_gateProviderId: BPNL00000007RF54
       application_bpdm_policyBpn: BPNL00000007RWSM
       application_edc_enabled: 'false'
-      application_edc_providers[0]: BPDMPool
-      application_edc_providers[1]: BPDMGate
+      application_edc_providers: "BPDMPool,BPDMGate"
       vas_auth_url: http://bpdm-keycloak.int.demo.catena-x.net
       LOGGING_LEVEL_org_eclipse_tractusx_valueaddedservice_service_logic_EDCLogicService: DEBUG
       SERVER_SSL_ENABLED: 'false'
