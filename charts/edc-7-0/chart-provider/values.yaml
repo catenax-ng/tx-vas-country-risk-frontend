@@ -42,7 +42,7 @@
      id: "did:web:changeme"
      sts:
        dim:
-         url: "https://311c-2a01-14-807e-3d50-4091-cc38-b825-9c08.ngrok-free.app"
+         url: "https://auth-server-test.loca.lt"
        oauth:
          token_url: "https://centralidp-v2.int.demo.catena-x.net/auth/realms/CX-Central/protocol/openid-connect/token"
          client:
@@ -82,7 +82,7 @@
        readOnlyRootFilesystem: false
      bdrs:
        server:
-         url: "https://311c-2a01-14-807e-3d50-4091-cc38-b825-9c08.ngrok-free.app"
+         url: "https://shiny-pandas-begin.loca.lt"
    dataplane:
      endpoints:
        proxy:
