@@ -39,7 +39,7 @@
      id: "BPNLX02"
    iatp:
      # Decentralized IDentifier
-     id: "did:web:changeme"
+     id: "country-risk"
      sts:
        dim:
          url: "https://240f-2001-8a0-fbd0-3700-f1ca-d5a-a186-fe8a.ngrok-free.app"
