@@ -49,6 +49,9 @@
            id: "sa122"
            secret_alias: "country-risk/int/edc-consumer/CLIENT_SECRET"
    controlplane:
+     bdrs:
+       server:
+         url: 'https://6d06-2001-8a0-fbd0-3700-618d-216b-3353-9ec7.ngrok-free.app/api/directory'
      ingresses:
        ## Public / Internet facing Ingress
        - enabled: true
@@ -80,9 +83,6 @@
      securityContext:
        # avoids some errors in the log: cannot write temp files of large multipart requests when R/O
        readOnlyRootFilesystem: false
-     bdrs:
-       server:
-         url: https://6d06-2001-8a0-fbd0-3700-618d-216b-3353-9ec7.ngrok-free.app
    dataplane:
      endpoints:
        proxy:
