@@ -52,11 +52,11 @@
            id: "sa122"
            secret_alias: "country-risk/int/edc-consumer/CLIENT_SECRET"
    controlplane:
+     env:
+       TX_IAM_IATP_CREDENTIALSERVICE_URL: "https://6c4a-2001-8a0-fbd0-3700-618d-216b-3353-9ec7.ngrok-free.app"
      bdrs:
        server:
          url: 'http://6d06-2001-8a0-fbd0-3700-618d-216b-3353-9ec7.ngrok-free.app/api/directory'
-     credentialService:
-       url: 'http://6d06-2001-8a0-fbd0-3700-618d-216b-3353-9ec7.ngrok-free.app/api/credentials'
      ingresses:
        ## Public / Internet facing Ingress
        - enabled: true
