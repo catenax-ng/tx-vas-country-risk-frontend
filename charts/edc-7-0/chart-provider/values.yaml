@@ -36,10 +36,10 @@
     ################################
    participant:
      #Provider
-     id: "BPNLX02"
+     id: "BPNL00000007RWSM"
    iatp:
      # Decentralized IDentifier
-     id: "country-risk"
+     id: "BPNL00000007RWSM"
      sts:
        dim:
          url: "https://6c4a-2001-8a0-fbd0-3700-618d-216b-3353-9ec7.ngrok-free.app"
