@@ -42,7 +42,7 @@
      id: "BPNL00000007RWSM"
      sts:
        dim:
-         url: "https://6c4a-2001-8a0-fbd0-3700-618d-216b-3353-9ec7.ngrok-free.app"
+         url: "https://centralidp-v2.int.demo.catena-x.net"
        oauth:
          token_url: "https://centralidp-v2.int.demo.catena-x.net/auth/realms/CX-Central/protocol/openid-connect/token"
          client:
