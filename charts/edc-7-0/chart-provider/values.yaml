@@ -39,7 +39,7 @@
      id: "BPNL00000007RWSM"
    iatp:
      # Decentralized IDentifier
-     id: "BPNL00000007RWSM"
+     id: "did:web:did:6c4a-2001-8a0-fbd0-3700-618d-216b-3353-9ec7.ngrok-free:changeme"
      sts:
        dim:
          url: "https://6c4a-2001-8a0-fbd0-3700-618d-216b-3353-9ec7.ngrok-free.app"
