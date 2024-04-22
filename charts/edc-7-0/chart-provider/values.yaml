@@ -53,7 +53,7 @@
            secret_alias: "country-risk/int/edc-consumer/CLIENT_SECRET"
    controlplane:
      env:
-       TX_IAM_IATP_CREDENTIALSERVICE_URL: "https://6c4a-2001-8a0-fbd0-3700-618d-216b-3353-9ec7.ngrok-free.app"
+       #TX_IAM_IATP_CREDENTIALSERVICE_URL: "https://6c4a-2001-8a0-fbd0-3700-618d-216b-3353-9ec7.ngrok-free.app"
        EDC_IAM_TRUSTED-ISSUER_PORTAL-ISSUER-ID_ID: 'did:web:6d06-2001-8a0-fbd0-3700-618d-216b-3353-9ec7.ngrok-free.app/trusted-issuer'
        EDC_IAM_DID_WEB_USE_HTTPS: false
      bdrs:
