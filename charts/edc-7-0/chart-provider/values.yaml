@@ -39,7 +39,10 @@
      id: "BPNL00000007RWSM"
    iatp:
      # Decentralized IDentifier
-     id: "did:web:http://6d06-2001-8a0-fbd0-3700-618d-216b-3353-9ec7.ngrok-free.app:provider"
+     id: "did:web:6d06-2001-8a0-fbd0-3700-618d-216b-3353-9ec7.ngrok-free.app/provider"
+     trusted-issuer:
+       portal-issuer-id:
+        id: "did:web:6d06-2001-8a0-fbd0-3700-618d-216b-3353-9ec7.ngrok-free.app/trusted-issuer"
      sts:
        dim:
          url: "https://6c4a-2001-8a0-fbd0-3700-618d-216b-3353-9ec7.ngrok-free.app"
