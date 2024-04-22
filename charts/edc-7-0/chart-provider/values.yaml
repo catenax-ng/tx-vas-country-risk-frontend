@@ -55,6 +55,8 @@
      bdrs:
        server:
          url: 'http://6d06-2001-8a0-fbd0-3700-618d-216b-3353-9ec7.ngrok-free.app/api/directory'
+     credentialService:
+       url: 'http://6d06-2001-8a0-fbd0-3700-618d-216b-3353-9ec7.ngrok-free.app/api/credentials'
      ingresses:
        ## Public / Internet facing Ingress
        - enabled: true
