@@ -54,11 +54,11 @@
    controlplane:
      env:
        #TX_IAM_IATP_CREDENTIALSERVICE_URL: "https://6c4a-2001-8a0-fbd0-3700-618d-216b-3353-9ec7.ngrok-free.app"
-       EDC_IAM_TRUSTED-ISSUER_PORTAL-ISSUER-ID_ID: "did:web:portal-backend.int.demo.catena-x.net:api:administration:staticdata:did:BPNL00000007RF54/trusted-issuer"
-       EDC_IAM_DID_WEB_USE_HTTPS: false
+       #EDC_IAM_TRUSTED-ISSUER_PORTAL-ISSUER-ID_ID: "did:web:portal-backend.int.demo.catena-x.net:api:administration:staticdata:did:BPNL00000007RF54/trusted-issuer"
+       #EDC_IAM_DID_WEB_USE_HTTPS: false
      bdrs:
        server:
-         url: 'https://bpn-did-resolution-service.int.demo.catena-x.net/api/management/bpn-directory'
+         url: 'https://bpn-did-resolution-service.int.demo.catena-x.net/api/directory'
      ingresses:
        ## Public / Internet facing Ingress
        - enabled: true
