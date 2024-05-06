@@ -124,9 +124,9 @@
        accessKeyId: qwerty123
      token:
        signer:
-         privatekey_alias: "key-1"
+         privatekey_alias: "country-risk/int/edc-provider/DAPS_PRIVATE_KEY"
        verifier:
-         publickey_alias: "key-1"
+         publickey_alias: "country-risk/int/edc-provider/DAPS_PUBLIC_KEY"
    postgresql:
      jdbcUrl: jdbc:postgresql://country-risk-edc-provider-postgresql:5432/edc
      auth:
