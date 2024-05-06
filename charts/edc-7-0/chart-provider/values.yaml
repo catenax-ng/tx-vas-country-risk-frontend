@@ -39,7 +39,7 @@
      id: "BPNL00000007RF54"
    iatp:
      # Decentralized IDentifier
-     id: "did:web:portal-backend.int.demo.catena-x.net:api:administration:staticdata:did:BPNL00000007RF54/provider"
+     id: "did:web:portal-backend.int.demo.catena-x.net:api:administration:staticdata:did:BPNL00000007RF54"
      trusted-issuer:
        portal-issuer-id:
         id: "did:web:portal-backend.int.demo.catena-x.net:api:administration:staticdata:did:BPNL00000007RF54/trusted-issuer"
