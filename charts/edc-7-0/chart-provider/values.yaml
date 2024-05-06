@@ -49,7 +49,7 @@
          token_url: "https://bpnl00000007rf54-bpdm--golden--record.authentication.eu10.hana.ondemand.com/oauth/token"
          client:
            id: "sb-0d52b7f2-e7d0-4577-9647-f5132921e452!b459174|ica-production-dim-prod-eu10-004-prod-dis-cloud-approuter!b174292"
-           secret_alias: "country-risk/int/edc-consumer/CLIENT_SECRET"
+           secret_alias: "country-risk/int/edc-provider/CLIENT_SECRET"
    controlplane:
      env:
        #TX_IAM_IATP_CREDENTIALSERVICE_URL: "https://6c4a-2001-8a0-fbd0-3700-618d-216b-3353-9ec7.ngrok-free.app"
