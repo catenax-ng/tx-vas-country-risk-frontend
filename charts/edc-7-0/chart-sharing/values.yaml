@@ -46,7 +46,7 @@ txdc:
       dim:
         url: "https://dis-integration-service-prod.eu10.dim.cloud.sap/api/v2.0.0/iatp/catena-x-portal"
       oauth:
-        token_url: "https://bpnl00000007rf54-bpdm--golden--record.authentication.eu10.hana.ondemand.com/oauth/token"
+        token_url: "https://bpnl00000007rwsm-bpdm--golden--record.authentication.eu10.hana.ondemand.com/oauth/token"
         client:
           id: "sb-113caf5c-1f90-46bf-83f9-59313e40ea84!b459173|ica-production-dim-prod-eu10-004-prod-dis-cloud-approuter!b174292"
           secret_alias: "country-risk/int/edc-consumer/CLIENT_SECRET"
