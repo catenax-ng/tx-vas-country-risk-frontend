@@ -36,29 +36,29 @@
     ################################
    participant:
      #Provider
-     id: "BPNL00000007RWSM"
+     id: "BPNL00000007RF54"
    iatp:
      # Decentralized IDentifier
-     id: "did:web:6d06-2001-8a0-fbd0-3700-618d-216b-3353-9ec7.ngrok-free.app/provider"
+     id: "did:web:portal-backend.int.demo.catena-x.net:api:administration:staticdata:did:BPNL00000007RF54/provider"
      trusted-issuer:
        portal-issuer-id:
-        id: "did:web:6d06-2001-8a0-fbd0-3700-618d-216b-3353-9ec7.ngrok-free.app/trusted-issuer"
+        id: "did:web:portal-backend.int.demo.catena-x.net:api:administration:staticdata:did:BPNL00000007RF54/trusted-issuer"
      sts:
        dim:
-         url: "https://6c4a-2001-8a0-fbd0-3700-618d-216b-3353-9ec7.ngrok-free.app"
+         url: "https://dis-integration-service-prod.eu10.dim.cloud.sap/api/v2.0.0/iatp/catena-x-portal"
        oauth:
-         token_url: "https://centralidp-v2.int.demo.catena-x.net/auth/realms/CX-Central/protocol/openid-connect/token"
+         token_url: "https://bpnl00000007rf54-bpdm--golden--record.authentication.eu10.hana.ondemand.com/oauth/token"
          client:
-           id: "sa122"
+           id: "sb-0d52b7f2-e7d0-4577-9647-f5132921e452!b459174|ica-production-dim-prod-eu10-004-prod-dis-cloud-approuter!b174292"
            secret_alias: "country-risk/int/edc-consumer/CLIENT_SECRET"
    controlplane:
      env:
-       TX_IAM_IATP_CREDENTIALSERVICE_URL: "https://6c4a-2001-8a0-fbd0-3700-618d-216b-3353-9ec7.ngrok-free.app"
-       EDC_IAM_TRUSTED-ISSUER_PORTAL-ISSUER-ID_ID: 'did:web:6d06-2001-8a0-fbd0-3700-618d-216b-3353-9ec7.ngrok-free.app/trusted-issuer'
+       #TX_IAM_IATP_CREDENTIALSERVICE_URL: "https://6c4a-2001-8a0-fbd0-3700-618d-216b-3353-9ec7.ngrok-free.app"
+       EDC_IAM_TRUSTED-ISSUER_PORTAL-ISSUER-ID_ID: "did:web:portal-backend.int.demo.catena-x.net:api:administration:staticdata:did:BPNL00000007RF54/trusted-issuer"
        EDC_IAM_DID_WEB_USE_HTTPS: false
      bdrs:
        server:
-         url: 'http://6d06-2001-8a0-fbd0-3700-618d-216b-3353-9ec7.ngrok-free.app/api/directory'
+         url: 'https://bpn-did-resolution-service.int.demo.catena-x.net/api/management/bpn-directory'
      ingresses:
        ## Public / Internet facing Ingress
        - enabled: true
