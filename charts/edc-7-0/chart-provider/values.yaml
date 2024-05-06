@@ -58,7 +58,7 @@
        #EDC_IAM_DID_WEB_USE_HTTPS: false
      bdrs:
        server:
-         url: 'https://bpn-did-resolution-service.int.demo.catena-x.net/api/directory'
+         url: 'https://bpn-did-resolution-service.int.demo.catena-x.net/api/directory/bpn-directory'
      ingresses:
        ## Public / Internet facing Ingress
        - enabled: true
