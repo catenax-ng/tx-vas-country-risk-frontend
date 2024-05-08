@@ -28,7 +28,7 @@ countryRiskFrontend:
     name: "vas-country-risk"
     pullPolicy: Always
     # -- Overrides the image tag whose default is the chart appVersion.
-    tag: "2.0.0-alpha4"
+    tag: "2.0.0-alpha"
 
   appName: country-risk-frontend
   environment: int
@@ -47,7 +47,7 @@ countryRiskFrontend:
       REACT_APP_COUNTRY_RISK_API: 'https://vas-country-risk-backend.int.demo.catena-x.net'
       REACT_APP_PORTAL_FRONTEND: 'https://portal.int.demo.catena-x.net'
       REACT_APP_PORTAL_BACKEND: 'https://portal-backend.int.demo.catena-x.net'
-      REACT_APP_COUNTRY_RISK_CLIENT: country_risk_client
+      REACT_APP_COUNTRY_RISK_CLIENT: app143
 
 countryRiskBackend:
 
