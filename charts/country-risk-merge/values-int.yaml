@@ -77,7 +77,7 @@ countryRiskBackend:
     data:
       spring_profiles_active: int
       application_host: http://localhost:8080/api/dashboard
-      security_enabled: 'false'
+      security_enabled: 'true'
       # -- Endpoints for BPDM output gate
       application_bpdm_addressUrl: https://business-partners.int.demo.catena-x.net/pool/api/catena/addresses/search?
       application_bpdm_siteUrl: https://business-partners.int.demo.catena-x.net/pool/api/catena/sites/search?
