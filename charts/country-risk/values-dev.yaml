@@ -17,7 +17,7 @@
 # SPDX-License-Identifier: Apache-2.0
 ###############################################################
 
-country-risk-frontend:
+countryRiskFrontend:
 
   springProfiles:
     - dev
@@ -31,7 +31,7 @@ country-risk-frontend:
     name: "vas-country-risk"
     pullPolicy: Always
     # -- Overrides the image tag whose default is the chart appVersion.
-    tag: "latest"
+    tag: "2.0.0.alpha-2"
 
   ingress:
     host: catenax-vas-dev.demo.catena-x.net
@@ -49,7 +49,7 @@ country-risk-frontend:
       REACT_APP_PORTAL_BACKEND: 'https://portal-backend.dev.demo.catena-x.net'
       REACT_APP_COUNTRY_RISK_CLIENT: app9
 
-country-risk-backend:
+countryRiskBackend:
 
   springProfiles:
     - dev
@@ -63,7 +63,7 @@ country-risk-backend:
     name: "vas-country-risk-backend"
     pullPolicy: Always
     # -- Overrides the image tag whose default is the chart appVersion.
-    tag: "latest"
+    tag: "2.0.0.alpha-2"
 
   ingress:
     enabled: true
@@ -79,10 +79,10 @@ country-risk-backend:
       application_host: http://localhost:8080/api/dashboard
       security_enabled: 'true'
       # -- Endpoints for BPDM output gate
-      application_bpdm_addressUrl: https://business-partners.dev.demo.catena-x.net/pool/api/catena/addresses/search?
-      application_bpdm_siteUrl: https://business-partners.dev.demo.catena-x.net/pool/api/catena/sites/search?
-      application_bpdm_legalUrl: https://business-partners.dev.demo.catena-x.net/pool/api/catena/legal-entities/search?
-      application_bpdm_genericUrl: https://business-partners.dev.demo.catena-x.net/companies/test-company/api/catena/output/business-partners/search?
+      application_bpdm_addressUrl: https://business-partners.dev.demo.catena-x.net/pool/v6/members/addresses/search?
+      application_bpdm_siteUrl: https://business-partners.dev.demo.catena-x.net/pool/v6/members/sites/search?
+      application_bpdm_legalUrl: https://business-partners.dev.demo.catena-x.net/pool/v6/members/legal-entities/search?
+      application_bpdm_genericUrl: https://business-partners.dev.demo.catena-x.net/companies/test-company/v6/output/business-partners/search?
       application_bpdm_consumerManagementUrl: http://localhost:8080/consumerManagementUrl?
       application_bpdm_gateProviderProtocolUrl: http://localhost:8080/gateProviderProtocolUrl?
       application_bpdm_gateProviderId: BPNL0000000XXX

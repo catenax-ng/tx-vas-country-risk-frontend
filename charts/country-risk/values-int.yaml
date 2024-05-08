@@ -17,7 +17,7 @@
 # SPDX-License-Identifier: Apache-2.0
 ###############################################################
 
-country-risk-frontend:
+countryRiskFrontend:
 
   springProfiles:
     - int
@@ -28,7 +28,7 @@ country-risk-frontend:
     name: "vas-country-risk"
     pullPolicy: Always
     # -- Overrides the image tag whose default is the chart appVersion.
-    tag: "v1.4.0-alpha4"
+    tag: "2.0.0.alpha-2"
 
   appName: country-risk-frontend
   environment: int
@@ -43,13 +43,13 @@ country-risk-frontend:
   configmap:
     # Specifies whether a configmap should be created or not
     data:
-      REACT_APP_AUTH_URL: 'https://centralidp.int.demo.catena-x.net/auth'
+      REACT_APP_AUTH_URL: 'https://bpdm-keycloak.int.demo.catena-x.net/auth/'
       REACT_APP_COUNTRY_RISK_API: 'https://vas-country-risk-backend.int.demo.catena-x.net'
       REACT_APP_PORTAL_FRONTEND: 'https://portal.int.demo.catena-x.net'
       REACT_APP_PORTAL_BACKEND: 'https://portal-backend.int.demo.catena-x.net'
-      REACT_APP_COUNTRY_RISK_CLIENT: app96
+      REACT_APP_COUNTRY_RISK_CLIENT: country_risk_client
 
-country-risk-backend:
+countryRiskBackend:
 
   springProfiles:
     - int
@@ -88,8 +88,9 @@ country-risk-backend:
       application_bpdm_gateProviderId: BPNL00000007RF54
       application_bpdm_policyBpn: BPNL00000007RWSM
       application_edc_enabled: 'false'
-      vas_auth_url: https://centralidp.int.demo.catena-x.net
+      vas_auth_url: https://bpdm-keycloak.int.demo.catena-x.net
       LOGGING_LEVEL_org_eclipse_tractusx_valueaddedservice_service_logic_EDCLogicService: DEBUG
+      SERVER_SSL_ENABLED: 'false'
 
   applicationSecret:
     clientSecret: <path:value-added-service/data/country-risk/int/keycloak#country-risk-gate-client-secret>
