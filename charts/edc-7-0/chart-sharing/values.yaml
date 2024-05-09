@@ -36,7 +36,7 @@ txdc:
   ################################
   participant:
     #consumer
-    id: "BPNL00000007RWSM"
+    id: "BPNL00000007RWSMXXX"
   iatp:
     # Decentralized IDentifier
     id: "did:web:portal-backend.int.demo.catena-x.net:api:administration:staticdata:did:BPNL00000007RWSM"
