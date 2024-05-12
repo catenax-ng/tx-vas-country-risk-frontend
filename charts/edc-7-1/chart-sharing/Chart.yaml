@@ -1,0 +1,11 @@
+apiVersion: v2
+name: edc
+description: A Helm chart for deploying an EDC for the Country Risk environment
+type: application
+version: 2.0.0
+appVersion: 2.0.0
+dependencies:
+  - name: tractusx-connector
+    alias: txdc
+    version: 0.7.1
+    repository: https://eclipse-tractusx.github.io/charts/dev
