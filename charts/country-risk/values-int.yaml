@@ -28,7 +28,7 @@ countryRiskFrontend:
     name: "vas-country-risk"
     pullPolicy: Always
     # -- Overrides the image tag whose default is the chart appVersion.
-    tag: "2.0.0-alpha6"
+    tag: "2.0.0-alpha7"
 
   appName: country-risk-frontend
   environment: int
@@ -63,7 +63,8 @@ countryRiskBackend:
     name: "vas-country-risk-backend"
     pullPolicy: Always
     # -- Overrides the image tag whose default is the chart appVersion.
-    tag: "2.0.0-alpha-mock"
+    tag: "2.0.0-alpha7"
+    #tag: "2.0.0-alpha-mock"
 
   ingress:
     host: catenax-vas-int.demo.catena-x.net
@@ -77,20 +78,19 @@ countryRiskBackend:
     data:
       spring_profiles_active: int
       application_host: http://localhost:8080/api/dashboard
-      security_enabled: 'false'
+      security_enabled: 'true'
       # -- Endpoints for BPDM output gate
-      application_bpdm_addressUrl: https://business-partners.int.demo.catena-x.net/pool/api/catena/addresses/search?
-      application_bpdm_siteUrl: https://business-partners.int.demo.catena-x.net/pool/api/catena/sites/search?
-      application_bpdm_legalUrl: https://business-partners.int.demo.catena-x.net/pool/api/catena/legal-entities/search?
-      application_bpdm_genericUrl: https://business-partners.int.demo.catena-x.net/companies/test-company/api/catena/output/business-partners/search?
+      application_bpdm_addressUrl: https://business-partners.int.demo.catena-x.net/pool/v6/members/addresses/search?size=100
+      application_bpdm_siteUrl: https://business-partners.int.demo.catena-x.net/pool/v6/members/legal-entities/search?size=100
+      application_bpdm_legalUrl: https://business-partners.int.demo.catena-x.net/pool/v6/members/sites/search?size=100
+      application_bpdm_genericUrl: https://business-partners.int.demo.catena-x.net/companies/test-company/v6/output/business-partners/search?
       application_bpdm_consumerManagementUrl: https://country-risk-consumer-member-edc.int.demo.catena-x.net/management
-      application_bpdm_gateProviderProtocolUrl: https://gate-edc.int.demo.catena-x.net/api/v1/dsp
+      application_bpdm_gateProviderProtocolUrl: https://bpdm-edc.int.demo.catena-x.net/api/v1/dsp
       application_bpdm_gateProviderId: BPNL00000007RF54
       application_bpdm_policyBpn: BPNL00000007RWSM
-      application_edc_enabled: 'false'
+      application_edc_enabled: 'true'
       vas_auth_url: https://centralidp.int.demo.catena-x.net
       LOGGING_LEVEL_org_eclipse_tractusx_valueaddedservice_service_logic_EDCLogicService: DEBUG
-      SERVER_SSL_ENABLED: 'false'
 
   applicationSecret:
     clientSecret: <path:value-added-service/data/country-risk/int/keycloak#country-risk-gate-client-secret>
