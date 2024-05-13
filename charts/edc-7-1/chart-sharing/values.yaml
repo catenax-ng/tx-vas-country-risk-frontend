@@ -84,7 +84,7 @@ controlplane:
       authKey: <path:value-added-service/data/country-risk/int/edc#controlplane-auth>
   image:
     pullPolicy: Always
-    tag: "0.7.0"
+    tag: "0.7.1"
     #repository: "edc-controlplane-postgresql-hashicorp-vault"
   securityContext:
     # avoids some errors in the log: cannot write temp files of large multipart requests when R/O
@@ -95,7 +95,7 @@ dataplane:
       authKey: <path:value-added-service/data/country-risk/int/edc#controlplane-auth>
   image:
     pullPolicy: Always
-    tag: "0.7.0"
+    tag: "0.7.1"
     #repository: "edc-dataplane-hashicorp-vault"
   env:
     EDC_IAM_TRUSTED-ISSUER_ISSUER1_ID: 'did:web:dim-static-prod.dis-cloud-prod.cfapps.eu10-004.hana.ondemand.com:dim-hosted:2f45795c-d6cc-4038-96c9-63cedc0cd266:holder-iatp'
@@ -140,6 +140,8 @@ vault:
       secret: /v1/value-added-service
   secretNames:
     transferProxyTokenEncryptionAesKey: aes-keys
+    transferProxyTokenSignerPrivateKey: country-risk/int/edc-provider/DAPS_PRIVATE_KEY
+    transferProxyTokenSignerPublicKey: country-risk/int/edc-provider/DAPS_PUBLIC_KEY
     # this must be set through CLI args: --set vault.secrets=$YOUR_VAULT_SECRETS where YOUR_VAULT_SECRETS should
     # be a string in the format "key1:secret1;key2:secret2;..."
     secrets:
