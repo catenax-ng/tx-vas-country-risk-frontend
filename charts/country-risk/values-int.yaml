@@ -84,7 +84,7 @@ countryRiskBackend:
       application_bpdm_siteUrl: https://business-partners.int.demo.catena-x.net/pool/v6/members/legal-entities/search?size=100
       application_bpdm_legalUrl: https://business-partners.int.demo.catena-x.net/pool/v6/members/sites/search?size=100
       application_bpdm_genericUrl: https://business-partners.int.demo.catena-x.net/companies/test-company/v6/output/business-partners/search?
-      application_bpdm_consumerManagementUrl: https://country-risk-consumer-member-edc.int.demo.catena-x.net/management
+      application_bpdm_consumerManagementUrl: https://country-risk-edc-consumer.int.demo.catena-x.net/management
       application_bpdm_gateProviderProtocolUrl: https://bpdm-edc.int.demo.catena-x.net/api/v1/dsp
       application_bpdm_gateProviderId: BPNL00000007RF54
       application_bpdm_policyBpn: BPNL00000007RWSM
