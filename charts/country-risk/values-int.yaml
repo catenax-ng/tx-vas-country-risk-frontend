@@ -28,7 +28,7 @@ countryRiskFrontend:
     name: "vas-country-risk"
     pullPolicy: Always
     # -- Overrides the image tag whose default is the chart appVersion.
-    tag: "2.0.0-alpha7"
+    tag: "2.0.0-alpha9"
 
   appName: country-risk-frontend
   environment: int
@@ -63,7 +63,7 @@ countryRiskBackend:
     name: "vas-country-risk-backend"
     pullPolicy: Always
     # -- Overrides the image tag whose default is the chart appVersion.
-    tag: "2.0.0-alpha7"
+    tag: "2.0.0-alpha9"
     #tag: "2.0.0-alpha-mock"
 
   ingress:
